@@ -1,0 +1,1691 @@
+g++ -g -Wall `pkg-config --cflags stage`  -fPIC `pkg-config --libs stage`  -c wiseRobot.cpp
+g++ -g -Wall `pkg-config --cflags stage`  -fPIC `pkg-config --libs stage`  FinalLog.o connectionlocal.o wiseRobot.o -o coordination.so -shared
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot15!
+Destroyed robot1!
+Destroyed robot6!
+Destroyed robot8!
+Destroyed robot13!
+Destroyed robot9!
+Destroyed robot3!
+Destroyed robot14!
+Destroyed robot16!
+Destroyed robot4!
+Destroyed robot17!
+Destroyed robot10!
+Destroyed robot0!
+Destroyed robot5!
+Destroyed robot2!
+Destroyed robot18!
+Destroyed robot12!
+Destroyed robot19!
+Destroyed robot11!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 1
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot2!
+Destroyed robot16!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot3!
+Destroyed robot9!
+Destroyed robot13!
+Destroyed robot18!
+Destroyed robot19!
+Destroyed robot14!
+Destroyed robot10!
+Destroyed robot0!
+Destroyed robot4!
+Destroyed robot12!
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot6!
+Destroyed robot11!
+Destroyed robot7!
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot16!
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot0!
+Destroyed robot10!
+Destroyed robot7!
+Destroyed robot3!
+Destroyed robot15!
+Destroyed robot13!
+Destroyed robot1!
+Destroyed robot14!
+Destroyed robot8!
+Destroyed robot6!
+Destroyed robot9!
+Destroyed robot19!
+Destroyed robot2!
+Destroyed robot12!
+Destroyed robot18!
+Destroyed robot11!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot9!
+Destroyed robot1!
+Destroyed robot8!
+Destroyed robot15!
+Destroyed robot16!
+Destroyed robot6!
+Destroyed robot10!
+Destroyed robot7!
+Destroyed robot4!
+Destroyed robot11!
+Destroyed robot0!
+Destroyed robot12!
+Destroyed robot2!
+Destroyed robot14!
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot19!
+Destroyed robot18!
+Destroyed robot3!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 2
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot18!
+Destroyed robot6!
+Destroyed robot11!
+Destroyed robot5!
+Destroyed robot14!
+Destroyed robot7!
+Destroyed robot8!
+Destroyed robot0!
+Destroyed robot2!
+Destroyed robot17!
+Destroyed robot19!
+Destroyed robot16!
+Destroyed robot4!
+Destroyed robot12!
+Destroyed robot9!
+Destroyed robot15!
+Destroyed robot13!
+Destroyed robot1!
+Destroyed robot3!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 3
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot7!
+Destroyed robot12!
+Destroyed robot14!
+Destroyed robot2!
+Destroyed robot5!
+Destroyed robot9!
+Destroyed robot1!
+Destroyed robot11!
+Destroyed robot13!
+Destroyed robot8!
+Destroyed robot3!
+Destroyed robot4!
+Destroyed robot19!
+Destroyed robot18!
+Destroyed robot10!
+Destroyed robot15!
+Destroyed robot6!
+Destroyed robot16!
+Destroyed robot17!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot1!
+Destroyed robot19!
+Destroyed robot12!
+Destroyed robot7!
+Destroyed robot13!
+Destroyed robot16!
+Destroyed robot17!
+Destroyed robot2!
+Destroyed robot0!
+Destroyed robot10!
+Destroyed robot11!
+Destroyed robot6!
+Destroyed robot14!
+Destroyed robot5!
+Destroyed robot15!
+Destroyed robot18!
+Destroyed robot8!
+Destroyed robot4!
+Destroyed robot3!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 4
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot4!
+Destroyed robot18!
+Destroyed robot16!
+Destroyed robot3!
+Destroyed robot19!
+Destroyed robot0!
+Destroyed robot5!
+Destroyed robot15!
+Destroyed robot9!
+Destroyed robot11!
+Destroyed robot10!
+Destroyed robot1!
+Destroyed robot7!
+Destroyed robot8!
+Destroyed robot14!
+Destroyed robot6!
+Destroyed robot12!
+Destroyed robot13!
+Destroyed robot2!
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot16!
+Destroyed robot18!
+Destroyed robot13!
+Destroyed robot0!
+Destroyed robot14!
+Destroyed robot1!
+Destroyed robot2!
+Destroyed robot3!
+Destroyed robot12!
+Destroyed robot19!
+Destroyed robot5!
+Destroyed robot4!
+Destroyed robot11!
+Destroyed robot10!
+Destroyed robot8!
+Destroyed robot17!
+Destroyed robot7!
+Destroyed robot15!
+Destroyed robot6!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot19!
+Destroyed robot8!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot15!
+Destroyed robot2!
+Destroyed robot14!
+Destroyed robot13!
+Destroyed robot1!
+Destroyed robot3!
+Destroyed robot5!
+Destroyed robot9!
+Destroyed robot0!
+Destroyed robot16!
+Destroyed robot7!
+Destroyed robot11!
+Destroyed robot18!
+Destroyed robot6!
+Destroyed robot4!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 5
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot3!
+Destroyed robot14!
+Destroyed robot18!
+Destroyed robot12!
+Destroyed robot11!
+Destroyed robot5!
+Destroyed robot19!
+Destroyed robot1!
+Destroyed robot2!
+Destroyed robot9!
+Destroyed robot13!
+Destroyed robot10!
+Destroyed robot7!
+Destroyed robot17!
+Destroyed robot15!
+Destroyed robot16!
+Destroyed robot8!
+Destroyed robot0!
+Destroyed robot4!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 6
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot18!
+Destroyed robot9!
+Destroyed robot14!
+Destroyed robot15!
+Destroyed robot6!
+Destroyed robot10!
+Destroyed robot13!
+Destroyed robot5!
+Destroyed robot4!
+Destroyed robot2!
+Destroyed robot1!
+Destroyed robot7!
+Destroyed robot3!
+Destroyed robot0!
+Destroyed robot8!
+Destroyed robot19!
+Destroyed robot16!
+Destroyed robot12!
+Destroyed robot11!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 7
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot6!
+Destroyed robot18!
+Destroyed robot0!
+Destroyed robot10!
+Destroyed robot9!
+Destroyed robot14!
+Destroyed robot5!
+Destroyed robot3!
+Destroyed robot17!
+Destroyed robot13!
+Destroyed robot2!
+Destroyed robot15!
+Destroyed robot4!
+Destroyed robot8!
+Destroyed robot11!
+Destroyed robot12!
+Destroyed robot19!
+Destroyed robot16!
+Destroyed robot1!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot2!
+Destroyed robot14!
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot9!
+Destroyed robot10!
+Destroyed robot1!
+Destroyed robot11!
+Destroyed robot12!
+Destroyed robot7!
+Destroyed robot18!
+Destroyed robot0!
+Destroyed robot4!
+Destroyed robot16!
+Destroyed robot13!
+Destroyed robot15!
+Destroyed robot19!
+Destroyed robot6!
+Destroyed robot3!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 8
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot3!
+Destroyed robot7!
+Destroyed robot0!
+Destroyed robot9!
+Destroyed robot14!
+Destroyed robot2!
+Destroyed robot18!
+Destroyed robot8!
+Destroyed robot12!
+Destroyed robot16!
+Destroyed robot19!
+Destroyed robot17!
+Destroyed robot10!
+Destroyed robot5!
+Destroyed robot11!
+Destroyed robot4!
+Destroyed robot13!
+Destroyed robot1!
+Destroyed robot15!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot10!
+Destroyed robot7!
+Destroyed robot13!
+Destroyed robot18!
+Destroyed robot5!
+Destroyed robot17!
+Destroyed robot9!
+Destroyed robot3!
+Destroyed robot11!
+Destroyed robot0!
+Destroyed robot4!
+Destroyed robot19!
+Destroyed robot16!
+Destroyed robot15!
+Destroyed robot6!
+Destroyed robot2!
+Destroyed robot12!
+Destroyed robot1!
+Destroyed robot8!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 9
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot12!
+Destroyed robot17!
+Destroyed robot19!
+Destroyed robot0!
+Destroyed robot1!
+Destroyed robot15!
+Destroyed robot10!
+Destroyed robot7!
+Destroyed robot18!
+Destroyed robot6!
+Destroyed robot4!
+Destroyed robot9!
+Destroyed robot13!
+Destroyed robot8!
+Destroyed robot5!
+Destroyed robot16!
+Destroyed robot2!
+Destroyed robot3!
+Destroyed robot11!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot9!
+Destroyed robot7!
+Destroyed robot15!
+Destroyed robot0!
+Destroyed robot12!
+Destroyed robot17!
+Destroyed robot4!
+Destroyed robot3!
+Destroyed robot2!
+Destroyed robot19!
+Destroyed robot5!
+Destroyed robot18!
+Destroyed robot6!
+Destroyed robot14!
+Destroyed robot11!
+Destroyed robot10!
+Destroyed robot13!
+Destroyed robot1!
+Destroyed robot8!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 10
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot13!
+Destroyed robot5!
+Destroyed robot16!
+Destroyed robot15!
+Destroyed robot1!
+Destroyed robot10!
+Destroyed robot4!
+Destroyed robot18!
+Destroyed robot3!
+Destroyed robot7!
+Destroyed robot2!
+Destroyed robot9!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot14!
+Destroyed robot6!
+Destroyed robot19!
+Destroyed robot0!
+Destroyed robot11!
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot13!
+Destroyed robot7!
+Destroyed robot14!
+Destroyed robot17!
+Destroyed robot15!
+Destroyed robot12!
+Destroyed robot5!
+Destroyed robot1!
+Destroyed robot6!
+Destroyed robot3!
+Destroyed robot16!
+Destroyed robot8!
+Destroyed robot4!
+Destroyed robot2!
+Destroyed robot0!
+Destroyed robot18!
+Destroyed robot9!
+Destroyed robot11!
+Destroyed robot19!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot15!
+Destroyed robot0!
+Destroyed robot2!
+Destroyed robot3!
+Destroyed robot10!
+Destroyed robot8!
+Destroyed robot13!
+Destroyed robot6!
+Destroyed robot1!
+Destroyed robot7!
+Destroyed robot5!
+Destroyed robot17!
+Destroyed robot4!
+Destroyed robot12!
+Destroyed robot14!
+Destroyed robot16!
+Destroyed robot9!
+Destroyed robot11!
+Destroyed robot19!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 11
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot0!
+Destroyed robot9!
+Destroyed robot15!
+Destroyed robot14!
+Destroyed robot3!
+Destroyed robot13!
+Destroyed robot10!
+Destroyed robot19!
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot2!
+Destroyed robot1!
+Destroyed robot6!
+Destroyed robot8!
+Destroyed robot11!
+Destroyed robot18!
+Destroyed robot12!
+Destroyed robot7!
+Destroyed robot4!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 12
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot13!
+Destroyed robot9!
+Destroyed robot3!
+Destroyed robot18!
+Destroyed robot15!
+Destroyed robot1!
+Destroyed robot7!
+Destroyed robot11!
+Destroyed robot6!
+Destroyed robot14!
+Destroyed robot0!
+Destroyed robot10!
+Destroyed robot16!
+Destroyed robot4!
+Destroyed robot19!
+Destroyed robot8!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot5!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 13
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot7!
+Destroyed robot2!
+Destroyed robot4!
+Destroyed robot3!
+Destroyed robot15!
+Destroyed robot6!
+Destroyed robot13!
+Destroyed robot12!
+Destroyed robot9!
+Destroyed robot0!
+Destroyed robot10!
+Destroyed robot5!
+Destroyed robot11!
+Destroyed robot17!
+Destroyed robot19!
+Destroyed robot18!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot14!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 14
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot13!
+Destroyed robot2!
+Destroyed robot17!
+Destroyed robot3!
+Destroyed robot0!
+Destroyed robot18!
+Destroyed robot11!
+Destroyed robot5!
+Destroyed robot16!
+Destroyed robot6!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot12!
+Destroyed robot7!
+Destroyed robot10!
+Destroyed robot9!
+Destroyed robot19!
+Destroyed robot4!
+Destroyed robot14!
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot2!
+Destroyed robot9!
+Destroyed robot0!
+Destroyed robot4!
+Destroyed robot5!
+Destroyed robot7!
+Destroyed robot10!
+Destroyed robot12!
+Destroyed robot11!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot18!
+Destroyed robot15!
+Destroyed robot19!
+Destroyed robot6!
+Destroyed robot3!
+Destroyed robot13!
+Destroyed robot16!
+Destroyed robot17!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot15!
+Destroyed robot13!
+Destroyed robot9!
+Destroyed robot11!
+Destroyed robot10!
+Destroyed robot5!
+Destroyed robot16!
+Destroyed robot0!
+Destroyed robot4!
+Destroyed robot18!
+Destroyed robot19!
+Destroyed robot14!
+Destroyed robot17!
+Destroyed robot7!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot12!
+Destroyed robot6!
+Destroyed robot2!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 15
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot18!
+Destroyed robot1!
+Destroyed robot3!
+Destroyed robot11!
+Destroyed robot8!
+Destroyed robot10!
+Destroyed robot15!
+Destroyed robot17!
+Destroyed robot16!
+Destroyed robot6!
+Destroyed robot0!
+Destroyed robot2!
+Destroyed robot13!
+Destroyed robot19!
+Destroyed robot5!
+Destroyed robot12!
+Destroyed robot9!
+Destroyed robot14!
+Destroyed robot7!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot15!
+Destroyed robot8!
+Destroyed robot18!
+Destroyed robot12!
+Destroyed robot7!
+Destroyed robot6!
+Destroyed robot14!
+Destroyed robot17!
+Destroyed robot1!
+Destroyed robot2!
+Destroyed robot4!
+Destroyed robot3!
+Destroyed robot16!
+Destroyed robot9!
+Destroyed robot10!
+Destroyed robot11!
+Destroyed robot0!
+Destroyed robot13!
+Destroyed robot19!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 16
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot1!
+Destroyed robot7!
+Destroyed robot4!
+Destroyed robot9!
+Destroyed robot2!
+Destroyed robot11!
+Destroyed robot5!
+Destroyed robot16!
+Destroyed robot13!
+Destroyed robot0!
+Destroyed robot10!
+Destroyed robot8!
+Destroyed robot6!
+Destroyed robot17!
+Destroyed robot14!
+Destroyed robot15!
+Destroyed robot3!
+Destroyed robot19!
+Destroyed robot18!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot3!
+Destroyed robot15!
+Destroyed robot4!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot13!
+Destroyed robot6!
+Destroyed robot14!
+Destroyed robot19!
+Destroyed robot5!
+Destroyed robot18!
+Destroyed robot10!
+Destroyed robot16!
+Destroyed robot12!
+Destroyed robot7!
+Destroyed robot0!
+Destroyed robot2!
+Destroyed robot11!
+Destroyed robot9!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 17
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot11!
+Destroyed robot3!
+Destroyed robot16!
+Destroyed robot2!
+Destroyed robot0!
+Destroyed robot15!
+Destroyed robot9!
+Destroyed robot4!
+Destroyed robot12!
+Destroyed robot13!
+Destroyed robot7!
+Destroyed robot19!
+Destroyed robot5!
+Destroyed robot10!
+Destroyed robot6!
+Destroyed robot17!
+Destroyed robot8!
+Destroyed robot14!
+Destroyed robot1!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot11!
+Destroyed robot4!
+Destroyed robot9!
+Destroyed robot6!
+Destroyed robot3!
+Destroyed robot8!
+Destroyed robot13!
+Destroyed robot7!
+Destroyed robot1!
+Destroyed robot10!
+Destroyed robot0!
+Destroyed robot16!
+Destroyed robot12!
+Destroyed robot15!
+Destroyed robot5!
+Destroyed robot2!
+Destroyed robot19!
+Destroyed robot18!
+Destroyed robot14!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 18
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot4!
+Destroyed robot6!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot9!
+Destroyed robot18!
+Destroyed robot7!
+Destroyed robot5!
+Destroyed robot3!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot16!
+Destroyed robot19!
+Destroyed robot0!
+Destroyed robot13!
+Destroyed robot11!
+Destroyed robot2!
+Destroyed robot10!
+Destroyed robot14!
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot1!
+Destroyed robot6!
+Destroyed robot9!
+Destroyed robot10!
+Destroyed robot12!
+Destroyed robot4!
+Destroyed robot13!
+Destroyed robot0!
+Destroyed robot18!
+Destroyed robot17!
+Destroyed robot19!
+Destroyed robot14!
+Destroyed robot3!
+Destroyed robot8!
+Destroyed robot11!
+Destroyed robot2!
+Destroyed robot15!
+Destroyed robot16!
+Destroyed robot5!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot11!
+Destroyed robot5!
+Destroyed robot1!
+Destroyed robot12!
+Destroyed robot8!
+Destroyed robot10!
+Destroyed robot3!
+Destroyed robot13!
+Destroyed robot0!
+Destroyed robot14!
+Destroyed robot4!
+Destroyed robot15!
+Destroyed robot17!
+Destroyed robot9!
+Destroyed robot6!
+Destroyed robot18!
+Destroyed robot19!
+Destroyed robot16!
+Destroyed robot7!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 19
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot10!
+Destroyed robot17!
+Destroyed robot6!
+Destroyed robot11!
+Destroyed robot16!
+Destroyed robot1!
+Destroyed robot8!
+Destroyed robot12!
+Destroyed robot2!
+Destroyed robot4!
+Destroyed robot9!
+Destroyed robot18!
+Destroyed robot5!
+Destroyed robot19!
+Destroyed robot14!
+Destroyed robot13!
+Destroyed robot0!
+Destroyed robot7!
+Destroyed robot15!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 20
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot8!
+Destroyed robot7!
+Destroyed robot11!
+Destroyed robot1!
+Destroyed robot4!
+Destroyed robot0!
+Destroyed robot14!
+Destroyed robot3!
+Destroyed robot5!
+Destroyed robot17!
+Destroyed robot18!
+Destroyed robot16!
+Destroyed robot6!
+Destroyed robot9!
+Destroyed robot12!
+Destroyed robot19!
+Destroyed robot10!
+Destroyed robot2!
+Destroyed robot13!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 21
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot16!
+Destroyed robot8!
+Destroyed robot11!
+Destroyed robot10!
+Destroyed robot3!
+Destroyed robot1!
+Destroyed robot12!
+Destroyed robot13!
+Destroyed robot18!
+Destroyed robot2!
+Destroyed robot6!
+Destroyed robot4!
+Destroyed robot9!
+Destroyed robot19!
+Destroyed robot0!
+Destroyed robot7!
+Destroyed robot14!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 22
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot11!
+Destroyed robot0!
+Destroyed robot13!
+Destroyed robot3!
+Destroyed robot8!
+Destroyed robot16!
+Destroyed robot10!
+Destroyed robot7!
+Destroyed robot6!
+Destroyed robot18!
+Destroyed robot14!
+Destroyed robot15!
+Destroyed robot1!
+Destroyed robot2!
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot9!
+Destroyed robot12!
+Destroyed robot19!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot4!
+Destroyed robot16!
+Destroyed robot14!
+Destroyed robot8!
+Destroyed robot18!
+Destroyed robot15!
+Destroyed robot11!
+Destroyed robot12!
+Destroyed robot0!
+Destroyed robot2!
+Destroyed robot13!
+Destroyed robot9!
+Destroyed robot5!
+Destroyed robot1!
+Destroyed robot3!
+Destroyed robot19!
+Destroyed robot6!
+Destroyed robot7!
+Destroyed robot10!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 23
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot6!
+Destroyed robot8!
+Destroyed robot5!
+Destroyed robot0!
+Destroyed robot13!
+Destroyed robot7!
+Destroyed robot4!
+Destroyed robot9!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot14!
+Destroyed robot10!
+Destroyed robot11!
+Destroyed robot1!
+Destroyed robot18!
+Destroyed robot15!
+Destroyed robot2!
+Destroyed robot3!
+Destroyed robot16!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot14!
+Destroyed robot15!
+Destroyed robot16!
+Destroyed robot1!
+Destroyed robot0!
+Destroyed robot17!
+Destroyed robot4!
+Destroyed robot2!
+Destroyed robot8!
+Destroyed robot3!
+Destroyed robot6!
+Destroyed robot5!
+Destroyed robot12!
+Destroyed robot13!
+Destroyed robot9!
+Destroyed robot10!
+Destroyed robot18!
+Destroyed robot19!
+Destroyed robot7!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 24
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot6!
+Destroyed robot10!
+Destroyed robot14!
+Destroyed robot5!
+Destroyed robot9!
+Destroyed robot11!
+Destroyed robot12!
+Destroyed robot2!
+Destroyed robot17!
+Destroyed robot3!
+Destroyed robot7!
+Destroyed robot19!
+Destroyed robot0!
+Destroyed robot4!
+Destroyed robot8!
+Destroyed robot15!
+Destroyed robot18!
+Destroyed robot16!
+Destroyed robot13!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 25
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot2!
+Destroyed robot8!
+Destroyed robot11!
+Destroyed robot13!
+Destroyed robot9!
+Destroyed robot3!
+Destroyed robot15!
+Destroyed robot0!
+Destroyed robot14!
+Destroyed robot5!
+Destroyed robot1!
+Destroyed robot10!
+Destroyed robot17!
+Destroyed robot19!
+Destroyed robot7!
+Destroyed robot4!
+Destroyed robot12!
+Destroyed robot16!
+Destroyed robot18!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 26
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot19!
+Destroyed robot3!
+Destroyed robot17!
+Destroyed robot9!
+Destroyed robot11!
+Destroyed robot5!
+Destroyed robot10!
+Destroyed robot13!
+Destroyed robot18!
+Destroyed robot0!
+Destroyed robot8!
+Destroyed robot14!
+Destroyed robot16!
+Destroyed robot2!
+Destroyed robot12!
+Destroyed robot4!
+Destroyed robot7!
+Destroyed robot6!
+Destroyed robot1!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 27
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot16!
+Destroyed robot3!
+Destroyed robot13!
+Destroyed robot12!
+Destroyed robot8!
+Destroyed robot9!
+Destroyed robot15!
+Destroyed robot11!
+Destroyed robot7!
+Destroyed robot10!
+Destroyed robot5!
+Destroyed robot1!
+Destroyed robot0!
+Destroyed robot14!
+Destroyed robot4!
+Destroyed robot2!
+Destroyed robot19!
+Destroyed robot18!
+Destroyed robot6!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot10!
+Destroyed robot16!
+Destroyed robot19!
+Destroyed robot1!
+Destroyed robot15!
+Destroyed robot2!
+Destroyed robot5!
+Destroyed robot12!
+Destroyed robot0!
+Destroyed robot18!
+Destroyed robot13!
+Destroyed robot3!
+Destroyed robot14!
+Destroyed robot7!
+Destroyed robot11!
+Destroyed robot9!
+Destroyed robot17!
+Destroyed robot6!
+Destroyed robot4!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 28
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot17!
+Destroyed robot5!
+Destroyed robot6!
+Destroyed robot2!
+Destroyed robot1!
+Destroyed robot8!
+Destroyed robot11!
+Destroyed robot13!
+Destroyed robot16!
+Destroyed robot19!
+Destroyed robot7!
+Destroyed robot15!
+Destroyed robot12!
+Destroyed robot3!
+Destroyed robot18!
+Destroyed robot14!
+Destroyed robot4!
+Destroyed robot10!
+Destroyed robot0!
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot8!
+Destroyed robot0!
+Destroyed robot5!
+Destroyed robot13!
+Destroyed robot19!
+Destroyed robot14!
+Destroyed robot2!
+Destroyed robot7!
+Destroyed robot11!
+Destroyed robot16!
+Destroyed robot9!
+Destroyed robot6!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot10!
+Destroyed robot1!
+Destroyed robot4!
+Destroyed robot3!
+Destroyed robot15!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 29
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot19!
+Destroyed robot14!
+Destroyed robot13!
+Destroyed robot6!
+Destroyed robot9!
+Destroyed robot1!
+Destroyed robot11!
+Destroyed robot16!
+Destroyed robot8!
+Destroyed robot15!
+Destroyed robot10!
+Destroyed robot5!
+Destroyed robot12!
+Destroyed robot3!
+Destroyed robot17!
+Destroyed robot2!
+Destroyed robot0!
+Destroyed robot18!
+Destroyed robot4!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 30
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot14!
+Destroyed robot4!
+Destroyed robot10!
+Destroyed robot6!
+Destroyed robot5!
+Destroyed robot7!
+Destroyed robot11!
+Destroyed robot13!
+Destroyed robot2!
+Destroyed robot9!
+Destroyed robot8!
+Destroyed robot18!
+Destroyed robot12!
+Destroyed robot15!
+Destroyed robot0!
+Destroyed robot1!
+Destroyed robot16!
+Destroyed robot17!
+Destroyed robot19!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 31
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot13!
+Destroyed robot9!
+Destroyed robot15!
+Destroyed robot4!
+Destroyed robot19!
+Destroyed robot6!
+Destroyed robot18!
+Destroyed robot11!
+Destroyed robot8!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot3!
+Destroyed robot5!
+Destroyed robot1!
+Destroyed robot10!
+Destroyed robot14!
+Destroyed robot16!
+Destroyed robot0!
+Destroyed robot2!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 32
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot3!
+Destroyed robot15!
+Destroyed robot2!
+Destroyed robot9!
+Destroyed robot10!
+Destroyed robot11!
+Destroyed robot8!
+Destroyed robot14!
+Destroyed robot16!
+Destroyed robot12!
+Destroyed robot4!
+Destroyed robot1!
+Destroyed robot5!
+Destroyed robot17!
+Destroyed robot7!
+Destroyed robot18!
+Destroyed robot0!
+Destroyed robot6!
+Destroyed robot13!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 33
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot2!
+Destroyed robot0!
+Destroyed robot15!
+Destroyed robot5!
+Destroyed robot6!
+Destroyed robot18!
+Destroyed robot3!
+Destroyed robot13!
+Destroyed robot8!
+Destroyed robot1!
+Destroyed robot11!
+Destroyed robot10!
+Destroyed robot17!
+Destroyed robot12!
+Destroyed robot19!
+Destroyed robot9!
+Destroyed robot7!
+Destroyed robot14!
+Destroyed robot16!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 34
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot0!
+Destroyed robot2!
+Destroyed robot13!
+Destroyed robot6!
+Destroyed robot8!
+Destroyed robot17!
+Destroyed robot1!
+Destroyed robot11!
+Destroyed robot9!
+Destroyed robot7!
+Destroyed robot19!
+Destroyed robot12!
+Destroyed robot5!
+Destroyed robot10!
+Destroyed robot3!
+Destroyed robot4!
+Destroyed robot15!
+Destroyed robot18!
+Destroyed robot14!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 35
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot10!
+Destroyed robot6!
+Destroyed robot12!
+Destroyed robot14!
+Destroyed robot0!
+Destroyed robot9!
+Destroyed robot11!
+Destroyed robot7!
+Destroyed robot15!
+Destroyed robot1!
+Destroyed robot5!
+Destroyed robot13!
+Destroyed robot16!
+Destroyed robot4!
+Destroyed robot3!
+Destroyed robot19!
+Destroyed robot18!
+Destroyed robot17!
+Destroyed robot8!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 36
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot3!
+Destroyed robot6!
+Destroyed robot14!
+Destroyed robot9!
+Destroyed robot1!
+Destroyed robot15!
+Destroyed robot10!
+Destroyed robot12!
+Destroyed robot18!
+Destroyed robot5!
+Destroyed robot19!
+Destroyed robot2!
+Destroyed robot13!
+Destroyed robot0!
+Destroyed robot4!
+Destroyed robot7!
+Destroyed robot16!
+Destroyed robot17!
+Destroyed robot8!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 37
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot2!
+Destroyed robot7!
+Destroyed robot10!
+Destroyed robot18!
+Destroyed robot16!
+Destroyed robot14!
+Destroyed robot11!
+Destroyed robot1!
+Destroyed robot12!
+Destroyed robot9!
+Destroyed robot17!
+Destroyed robot13!
+Destroyed robot8!
+Destroyed robot6!
+Destroyed robot0!
+Destroyed robot3!
+Destroyed robot15!
+Destroyed robot19!
+Destroyed robot5!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 38
+
+
+******* testar.sh 20  ********
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot13!
+Destroyed robot14!
+Destroyed robot4!
+Destroyed robot3!
+Destroyed robot5!
+Destroyed robot11!
+Destroyed robot17!
+Destroyed robot15!
+Destroyed robot2!
+Destroyed robot7!
+Destroyed robot10!
+Destroyed robot0!
+Destroyed robot18!
+Destroyed robot8!
+Destroyed robot12!
+Destroyed robot16!
+Destroyed robot19!
+Destroyed robot6!
+Destroyed robot1!
+
+
+*** determinar crescimento de RS em relacao 20 robos ****
+
+
+Experimento numero 39
+
+
+/home/andersoney/TCC/NoCoord Modificado
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][Include map.inc][Include sick.inc][Include pioneer.inc]g++ -c -fPIC ./connectionlocal.cpp
+g++ -g -Wall `pkg-config --cflags stage`  -fPIC `pkg-config --libs stage`  -c wiseRobot.cpp
+g++ -c -fPIC ./FinalLog.cpp
+g++ -g -Wall `pkg-config --cflags stage`  -fPIC `pkg-config --libs stage`  FinalLog.o connectionlocal.o wiseRobot.o -o coordination.so -shared
+******* testar.sh 20  ********
+/home/andersoney/TCC/Novo/11
+./testar.sh: line 15: ./createScenario: Permissão negada
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][41merr[0m: unable to open world file automatic1.world : No such file or directory (/home/cetec/Stage-master/libstage/worldfile.cc Load)
+./testar.sh: line 21: 43452 Terminado               timeout $TIMEOUT stage $GUI automatic$2.world
+make: Nothing to be done for 'run'.
+******* testar.sh 20  ********
+/home/andersoney/TCC/Novo/11
+./testar.sh: line 15: ./createScenario: Permissão negada
+Stage 4.1.1 [GUI disabled]
+ [Loading automatic1.world][41merr[0m: unable to open world file automatic1.world : No such file or directory (/home/cetec/Stage-master/libstage/worldfile.cc Load)
