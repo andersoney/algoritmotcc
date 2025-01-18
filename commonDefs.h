@@ -14,6 +14,7 @@
 #define I_DONT_CARE_COLOR Color(0,0,1)
 #define WAIT_A_LOT_COLOR  Color(0,1,1)
 #define GOING_OUT_COLOR   Color(1,0.7,0)
+#define ID_15_COLOR       Color(255,0.7,0)
 #define END_COLOR         Color(0,0,0)
 
 //Msg types
@@ -28,3 +29,6 @@
 #define CONSTANTE 11
 #define CONSTANTE_R 1
 //#define m2
+
+#define SECURITY_DIST_ENTRANDO 1.2
+#define SECURITY_DIST_OUT 7

@@ -8,10 +8,10 @@
 
 #include "commonMethods.cpp"
 
-//Constructor. pool is the message pool to send and receive msgs
+// Constructor. pool is the message pool to send and receive msgs
 WiseRobot::WiseRobot(Pool_t *pool) : connection(pool) {}
 
-//Initialize all robot data (pose, connection, velocity, etc.)
+// Initialize all robot data (pose, connection, velocity, etc.)
 void WiseRobot::init(int id)
 {
     m_id = id;
@@ -37,9 +37,12 @@ void WiseRobot::init(int id)
     finished = false;
     stalls = 0;
     alreadyStalled = false;
+    if(m_id==15){
+        pos->SetColor(ID_15_COLOR);
+    }
 }
 
-//Finish robot, freeing some variables and closing files
+// Finish robot, freeing some variables and closing files
 void WiseRobot::finish()
 {
     cout << "Destroyed " << m_name << "!" << endl;
@@ -48,7 +51,7 @@ void WiseRobot::finish()
 #endif
 }
 
-//Alter the values of fx and fy, adding repulsion force.
+// Alter the values of fx and fy, adding repulsion force.
 void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
 {
     double Kobs = Ki; // Weight of the obstacle repulsion forces
@@ -60,9 +63,14 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
     ModelRanger::Sensor sensor = sensors[0];
     const std::vector<meters_t> &scan = sensor.ranges;
     uint32_t sample_count = scan.size();
+    double min_distance = 180;
     for (uint32_t i = 0; i < sample_count; i++)
     {
         distance = scan[i];
+        if (min_distance > distance)
+        {
+            min_distance = distance;
+        }
         double influence = INFLUENCE;
         if (distance <= influence)
         {
@@ -80,8 +88,8 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
             double _fx = 0, _fy = 0;
             if (estado == ENTRANDO)
             {
-                _fx = -Kobs * CONSTANTE_R * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dx / distance);
-                _fy = -Kobs * CONSTANTE_R * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dy / distance);
+                _fx = -Kobs * CONSTANTE_R * multiplicador_repolsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dx / distance);
+                _fy = -Kobs * CONSTANTE_R * multiplicador_repolsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dy / distance);
             }
             else if (estado == SAINDO)
             {
@@ -99,14 +107,32 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
             fy_ += _fy;
         }
     }
+
+#ifdef mudancas
+    if (estado == ENTRANDO)
+    {
+        if (min_distance < SECURITY_DIST_ENTRANDO)
+        {
+            multiplicador_repolsao += 0.1;
+        }
+        else
+        {
+            qtd_sem_aumentar_repulsao += 1;
+        }
+        if (qtd_sem_aumentar_repulsao > 4 && multiplicador_repolsao > 1)
+        {
+            multiplicador_repolsao -= 0.01;
+        }
+    }
+#endif
 #ifdef DEBUG_FORCES
     fv.setRepulsiveForces(fx_, fy_);
 #endif
 }
 
-//Implements the main loop of robot.
-//Also contain robot controller and
-//probabilistic finite state machine codes
+// Implements the main loop of robot.
+// Also contain robot controller and
+// probabilistic finite state machine codes
 void WiseRobot::walk()
 {
     double fx = 0;
@@ -118,7 +144,7 @@ void WiseRobot::walk()
 
     numIterations++;
 
-    //how many times robot stall?
+    // how many times robot stall?
     if (pos->Stalled())
     {
         if (!alreadyStalled)
@@ -142,6 +168,7 @@ void WiseRobot::walk()
         finished = true;
         currentWaypoint = 1 + (rand() % NUMBER_OF_WAYPOINTS);
         estado = SAINDO;
+        multiplicador_repolsao = 1;
         pos->SetColor(GOING_OUT_COLOR);
 
         numIterationsReachGoal = numIterations;
@@ -221,9 +248,9 @@ void WiseRobot::walk()
 
 Pool_t pool;
 
-//Pointer to a new robot.
-//Every call of this library will create a new robot
-//using this pointer.
+// Pointer to a new robot.
+// Every call of this library will create a new robot
+// using this pointer.
 WiseRobot *robot;
 
 extern "C" int Init(Model *mod, CtrlArgs *args)
