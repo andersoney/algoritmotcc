@@ -89,8 +89,8 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
             double _fx = 0, _fy = 0;
             if (estado == ENTRANDO)
             {
-                _fx = -Kobs * CONSTANTE_R * multiplicador_repolsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dx / distance);
-                _fy = -Kobs * CONSTANTE_R * multiplicador_repolsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dy / distance);
+                _fx = -Kobs * CONSTANTE_R * multiplicador_repulsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dx / distance);
+                _fy = -Kobs * CONSTANTE_R * multiplicador_repulsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dy / distance);
             }
             else if (estado == SAINDO)
             {
@@ -114,37 +114,32 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
     {
         if (min_distance < SECURITY_DIST_ENTRANDO)
         {
-            multiplicador_repolsao += 0.1;
+            multiplicador_repulsao += 0.1;
         }
         else
         {
             qtd_sem_aumentar_repulsao += 1;
         }
-        if (qtd_sem_aumentar_repulsao > 4 && multiplicador_repolsao > 1)
+        if (qtd_sem_aumentar_repulsao > 4 && multiplicador_repulsao > 1)
         {
-            multiplicador_repolsao -= 0.01;
+            multiplicador_repulsao -= 0.01;
         }
     }
     if (estado == SAINDO)
     {
         if (min_distance < SECURITY_DIST_SAINDO)
         {
-            multiplicador_repolsao += 0.1;
+            multiplicador_repulsao += 0.1;
         }
-        else if (multiplicador_repolsao > 1)
+        else if (multiplicador_repulsao > 1)
         {
-            multiplicador_repolsao -= 0.1;
+            multiplicador_repulsao -= 0.1;
         }
     }
 #endif
 #ifdef DEBUG_FORCES
     fv.setRepulsiveForces(fx_, fy_);
 #endif
-    // if (m_id == 15)
-    // {
-    //     cout << "multiplicador_repolsao: " << multiplicador_repolsao << endl;
-    //     cout << "min_distance: " << min_distance << endl;
-    // }
 }
 
 // Implements the main loop of robot.
@@ -185,7 +180,7 @@ void WiseRobot::walk()
         finished = true;
         currentWaypoint = 1 + (rand() % NUMBER_OF_WAYPOINTS);
         estado = SAINDO;
-        multiplicador_repolsao = 1;
+        multiplicador_repulsao = 1;
         pos->SetColor(GOING_OUT_COLOR);
 
         numIterationsReachGoal = numIterations;

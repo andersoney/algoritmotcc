@@ -48,7 +48,7 @@ class WiseRobot
   private:
 	//Variavel para o gerenciamento dos estados que serão 2, entrando e saindo.
 	int estado;
-	double multiplicador_repolsao=1;
+	double multiplicador_repulsao=1;
 	int qtd_sem_aumentar_repulsao=0;
 
 	//Initialize robot position data, i.e. angular and linear velocities,
