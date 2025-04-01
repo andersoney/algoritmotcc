@@ -37,7 +37,8 @@ void WiseRobot::init(int id)
     finished = false;
     stalls = 0;
     alreadyStalled = false;
-    if(m_id==15){
+    if (m_id == 15)
+    {
         pos->SetColor(ID_15_COLOR);
     }
 }
@@ -124,10 +125,26 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
             multiplicador_repolsao -= 0.01;
         }
     }
+    if (estado == SAINDO)
+    {
+        if (min_distance < SECURITY_DIST_SAINDO)
+        {
+            multiplicador_repolsao += 0.1;
+        }
+        else if (multiplicador_repolsao > 1)
+        {
+            multiplicador_repolsao -= 0.1;
+        }
+    }
 #endif
 #ifdef DEBUG_FORCES
     fv.setRepulsiveForces(fx_, fy_);
 #endif
+    // if (m_id == 15)
+    // {
+    //     cout << "multiplicador_repolsao: " << multiplicador_repolsao << endl;
+    //     cout << "min_distance: " << min_distance << endl;
+    // }
 }
 
 // Implements the main loop of robot.

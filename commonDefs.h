@@ -31,4 +31,4 @@
 //#define m2
 
 #define SECURITY_DIST_ENTRANDO 1.2
-#define SECURITY_DIST_OUT 7
+#define SECURITY_DIST_SAINDO 0.8
