@@ -12,7 +12,7 @@ fi
 make
 
 #determinar crescimento de t em relacao ao numero de robos
-for ((nRobos=20;nRobos<=500;nRobos+=20))
+for ((nRobos=40;nRobos<=440;nRobos+=100))
 do
   #echo "*** determinar crescimento de RS em relacao $nRobos robos ****"
   for i in `seq 0 $((EXPERIMENTOS-1))`; 
