@@ -8,7 +8,7 @@ fi
 #make clean
 make
 max_concorrentes=30
-for ((nRobos=20;nRobos<=500;nRobos+=20))
+for ((nRobos=20;nRobos<=40;nRobos+=20))
 do
     for i in `seq 0 $((EXPERIMENTOS-1))`;
     do
@@ -22,9 +22,9 @@ do
             sleep 1
         done
         
-        mkdir -p "saidas/nRobos$nRobos"
+        mkdir -p "saidas/nRobots$nRobos"
         
-        echo "$nRobos $i - Executando para $nRobos $i pois o arquivo saidas/nRobos$nRobos/log\_$i n existe"
+        echo "$nRobos $i - Executando para $nRobos $i pois o arquivo saidas/nRobots$nRobos/log\_$i n existe"
         ./testar.sh $nRobos $i -gui &
         
     done
