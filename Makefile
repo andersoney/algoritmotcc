@@ -27,7 +27,7 @@ FinalLog.o: ./FinalLog.h ./FinalLog.cpp
 	$(CXX) -c -fPIC ./FinalLog.cpp
 
 clean:
-	@rm -f *.o *.so  server createScenario 
+	@rm -f *.o *.so  server createScenario  *.world
 	
 reset:
 	rm -rf nRobos*

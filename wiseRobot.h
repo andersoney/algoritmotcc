@@ -25,7 +25,7 @@ class WiseRobot
 {
   public:
 	//Initialize all robot data (pose, connection, velocity, etc.)
-	void init(int id);
+	void init(int id, int numRobots, int numExp);
 
 	//Finish robot, freeing some variables and closing files
 	void finish();

@@ -12,11 +12,10 @@
 WiseRobot::WiseRobot(Pool_t *pool) : connection(pool) {}
 
 // Initialize all robot data (pose, connection, velocity, etc.)
-void WiseRobot::init(int id)
+void WiseRobot::init(int id, int numRobots, int numExp)
 {
     m_id = id;
     m_name = "robot" + intToStr(id);
-
     Pose pose = pos->GetPose();
     m_x = pose.x;
     m_y = pose.y;
@@ -28,7 +27,7 @@ void WiseRobot::init(int id)
     log.open(("logs/" + m_name).c_str());
 #endif
 
-    connection.init_connection(1);
+    connection.init_connection("saidas", numRobots, numExp);
 
     init_position_data();
 
@@ -270,7 +269,6 @@ extern "C" int Init(Model *mod, CtrlArgs *args)
     robot = new WiseRobot(&pool);
     vector<string> tokens;
     Tokenize(args->worldfile, tokens);
-
     robot->pos = (ModelPosition *)mod;
     robot->pos->AddCallback(Model::CB_UPDATE, (model_callback_t)PositionUpdate, robot);
     robot->laser = (ModelRanger *)mod->GetChild("ranger:1");
@@ -278,7 +276,7 @@ extern "C" int Init(Model *mod, CtrlArgs *args)
     robot->laser->Subscribe(); // starts the laser updates
     robot->pos->Subscribe();   // starts the position updates
 
-    robot->init(atoi(tokens[1].c_str()));
+    robot->init(atoi(tokens[1].c_str()), atoi(tokens[2].c_str()), atoi(tokens[3].c_str()));
 #ifdef DEBUG_FORCES
     robot->pos->AddVisualizer(&robot->fv, true);
 #endif

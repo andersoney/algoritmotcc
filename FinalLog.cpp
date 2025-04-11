@@ -8,12 +8,14 @@ bool FinalLog::initiated;
 ofstream FinalLog::logFile;
 unsigned int FinalLog::numTotalIterationsReachGoal; // Total number of iterations
 unsigned int FinalLog::numTotalIterationsExitGoal;  // Total number of iterations
-unsigned int FinalLog::numMaxIterationsReachGoal;   //Maximum number of iterations to reach the goal
-unsigned int FinalLog::numMaxIterationsExitGoal;    //Maximum number of iterations to exit from goal
-unsigned int FinalLog::numTotalStalls;              //number of times that the robots stalled
-unsigned int FinalLog::numMsgs;                     //number of messages
+unsigned int FinalLog::numMaxIterationsReachGoal;   // Maximum number of iterations to reach the goal
+unsigned int FinalLog::numMaxIterationsExitGoal;    // Maximum number of iterations to exit from goal
+unsigned int FinalLog::numTotalStalls;              // number of times that the robots stalled
+unsigned int FinalLog::numMsgs;                     // number of messages
 string FinalLog::path;
 double FinalLog::prob;
+
+using namespace std;
 
 void FinalLog::init(string p)
 {
@@ -28,7 +30,7 @@ void FinalLog::init(string p)
         initiated = true;
         numFinished = 0;
         num_robots = 0;
-        //prob = p;
+        // prob = p;
         path = p;
     }
     num_robots++;
@@ -48,7 +50,7 @@ void FinalLog::init(double p)
         numFinished = 0;
         num_robots = 0;
         prob = p;
-        //path = p;
+        // path = p;
     }
     num_robots++;
 }
@@ -70,13 +72,13 @@ void FinalLog::refresh(unsigned int numIterationsReachGoal,
 
 void FinalLog::saveLog()
 {
-    //std::ostringstream strs;
-    //strs << prob;
-    //std::string probStr = strs.str();
-    //std::string probStr = std::to_string(prob);
+    // std::ostringstream strs;
+    // strs << prob;
+    // std::string probStr = strs.str();
+    // std::string probStr = std::to_string(prob);
 
-    //logFile.open((path.c_str()));
-    logFile.open("./logs");
+    logFile.open((path.c_str()));
+    //logFile.open(path);
     logFile << numTotalIterationsReachGoal + numTotalIterationsExitGoal << endl;
     logFile << numMaxIterationsReachGoal + numMaxIterationsExitGoal << endl;
     logFile << numMsgs << endl;
@@ -102,7 +104,7 @@ void FinalLog::finish()
 
         exit(0);
 
-        //kill STAGE pid in file pid.txt
+        // kill STAGE pid in file pid.txt
         /*string line,line2;
     bool OK = false;
     ifstream pid((std::string("pid")+probStr+std::string(".txt")).c_str());
