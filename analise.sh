@@ -1,6 +1,3 @@
-MAXVEZES=3; #depois de criado, se o arquivo de log estava vazio faz de novo o experimento no máximo MAX_VEZES
-ro=1;
-# Argumento 1 é opcional e indica a quantidade de vezes que o experimento será rodado
 if [ $# -ge 1 ]; then
     EXPERIMENTOS=$1
 else
@@ -11,23 +8,25 @@ fi
 #make clean
 make
 max_concorrentes=30
-#determinar crescimento de t em relacao ao numero de robos
 for ((nRobos=20;nRobos<=500;nRobos+=20))
 do
-    
-    #echo "*** determinar crescimento de RS em relacao $nRobos robos ****"
     for i in `seq 0 $((EXPERIMENTOS-1))`;
     do
+        log_file="saidas/nRobos$nRobos/log_$i"
+        if [ -f "$log_file" ]; then
+            echo "$nRobos $i - Log já existe, pulando..."
+            continue
+        fi
+        
         while [ "$(jobs -rp | wc -l)" -ge "$max_concorrentes" ]; do
-            sleep 30
+            sleep 1
         done
         
-        if [ ! -f "saidas/nRobos$nRobos/log\_$i" ]; then
-            echo "$nRobos $i - Executando para $nRobos $i pois o arquivo saidas/nRobos$nRobos/log\_$i n existe"
-            ./testar.sh $nRobos $i -gui &
-        else
-            echo "$nRobos $i - Não executando para $nRobos $i pois o arquivo saidas/nRobos$nRobos/log\_$i existe."
-        fi
+        mkdir -p "saidas/nRobos$nRobos"
+        
+        echo "$nRobos $i - Executando para $nRobos $i pois o arquivo saidas/nRobos$nRobos/log\_$i n existe"
+        ./testar.sh $nRobos $i -gui &
+        
     done
     echo "Todas as execuções finalizaram ${nRobos}"
 done;
