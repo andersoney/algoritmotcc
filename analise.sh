@@ -18,11 +18,11 @@ do
   for i in `seq 0 $((EXPERIMENTOS-1))`; 
   do
     if [ ! -e nRobos$nRobos/log\_$i ]; then      
-      echo "******* testar.sh $nRobos $logName ********" 
-      ./testar.sh $nRobos $ro &
-      if [ ! -d nRobos$nRobos ]; then
-        mkdir nRobos$nRobos;
-      fi
+      echo "******* testar.sh $nRobos saidas/nRobots$nRobos/log_$i ********" 
+      ./testar.sh $nRobos $i -gui &
+      # if [ ! -d nRobos$nRobos ]; then
+      #   mkdir nRobos$nRobos;
+      # fi
       let vA=$i+1
       echo ""
       echo ""
@@ -32,18 +32,18 @@ do
       echo "Experimento numero $vA"
       echo ""
       echo ""
-      mv logs nRobos$nRobos/log\_$i;
+      # mv logs nRobos$nRobos/log\_$i;
       #mv $logName nRobos$nRobos/log\_$i;
 
       #depois de criado, se o arquivo estava vazio faz de novo no máximo MAX_VEZES
-      vezes=0;
-      while [ $vezes -lt $MAXVEZES ] && ( [ ! -s nRobos$nRobos/log\_$i  ] ||  grep -q 10000 nRobos$nRobos/log\_$i ) ; do
-        echo "*** Rodando de novo, arquivo de log vazio ***" &>> logTestar$1
-        bash ./testar.sh $nRobos $ro
-        #mv $logName nRobos$nRobos/log\_$i;
-        mv logs nRobos$nRobos/log\_$i;
-        vezes=$((vezes+1));
-      done;
+      # vezes=0;
+      # while [ $vezes -lt $MAXVEZES ] && ( [ ! -s nRobos$nRobos/log\_$i  ] ||  grep -q 10000 nRobos$nRobos/log\_$i ) ; do
+      #   echo "*** Rodando de novo, arquivo de log vazio ***" &>> logTestar$1
+      #   bash ./testar.sh $nRobos $i -gui
+      #   #mv $logName nRobos$nRobos/log\_$i;
+      #   # mv logs nRobos$nRobos/log\_$i;
+      #   vezes=$((vezes+1));
+      # done;
     fi;
   done
 done; 
