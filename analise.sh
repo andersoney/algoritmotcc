@@ -10,13 +10,18 @@ fi
 
 #make clean
 make
-
+max_concorrentes=30
 #determinar crescimento de t em relacao ao numero de robos
 for ((nRobos=20;nRobos<=500;nRobos+=20))
 do
+    
     #echo "*** determinar crescimento de RS em relacao $nRobos robos ****"
     for i in `seq 0 $((EXPERIMENTOS-1))`;
     do
+        while [ "$(jobs -rp | wc -l)" -ge "$max_concorrentes" ]; do
+            sleep 30
+        done
+        
         if [ ! -f "saidas/nRobos$nRobos/log\_$i" ]; then
             echo "$nRobos $i - Executando para $nRobos $i pois o arquivo saidas/nRobos$nRobos/log\_$i n existe"
             ./testar.sh $nRobos $i -gui &
@@ -24,4 +29,7 @@ do
             echo "$nRobos $i - Não executando para $nRobos $i pois o arquivo saidas/nRobos$nRobos/log\_$i existe."
         fi
     done
+    echo "Todas as execuções finalizaram ${nRobos}"
 done;
+wait
+echo "Todas as execuções finalizaram"
