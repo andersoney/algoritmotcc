@@ -8,7 +8,7 @@ fi
 #make clean
 make
 max_concorrentes=30
-for ((nRobos=20;nRobos<=40;nRobos+=20))
+for ((nRobos=20;nRobos<=500;nRobos+=20))
 do
     for i in `seq 0 $((EXPERIMENTOS-1))`;
     do
