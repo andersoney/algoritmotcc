@@ -12,7 +12,7 @@ for ((nRobos=20;nRobos<=500;nRobos+=20))
 do
     for i in `seq 0 $((EXPERIMENTOS-1))`;
     do
-        log_file="saidas/nRobos$nRobos/log_$i"
+        log_file="saidas/nRobos$nRobos/logs_$i"
         if [ -f "$log_file" ]; then
             echo "$nRobos $i - Log já existe, pulando..."
             continue
