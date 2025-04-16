@@ -26,7 +26,7 @@ do
         mkdir -p "saida/cout/nRobots$nRobos"
         
         echo "$nRobos $i - Executando para $nRobos $i pois o arquivo saidas/nRobots$nRobos/log\_$i n existe"
-        ./testar.sh $nRobos $i -gui &>>"saida/cout/nRobots$nRobos" &
+        ./testar.sh $nRobos $i -gui &>>"saida/cout/nRobots$nRobos/logs_$i.log" &
         
     done
     echo "Todas as execuções finalizaram ${nRobos}"
