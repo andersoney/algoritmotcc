@@ -109,6 +109,10 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
     }
 
 #ifdef mudancas
+    if (this.m_id == 1)
+    {
+        cout << "Min distance: " << min_distance << endl;
+    }
     if (estado == ENTRANDO)
     {
         if (min_distance < SECURITY_DIST_ENTRANDO)
