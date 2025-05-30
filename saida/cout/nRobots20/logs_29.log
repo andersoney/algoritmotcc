@@ -1,0 +1,32 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+automatic_20_29.world
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_20_29.world][41merr[0m: unable to open world file worlds/automatic_20_29.world : No such file or directory (/home/yuri.passos/Stage-master/libstage/worldfile.cc Load)
+[41merr[0m:  Failed to open file worlds/automatic_20_29.world (/home/yuri.passos/Stage-master/libstage/world.cc Load)
+/home/andersoney/algoritmotcc
+
+Criando cenário
+automatic_20_29.world
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_20_29.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot7!
+Destroyed robot19!
+Destroyed robot0!
+Destroyed robot6!
+Destroyed robot14!
+Destroyed robot17!
+Destroyed robot1!
+Destroyed robot5!
+Destroyed robot18!
+Destroyed robot4!
+Destroyed robot16!
+Destroyed robot2!
+Destroyed robot3!
+Destroyed robot15!
+Destroyed robot13!
+Destroyed robot10!
+Destroyed robot8!
+Destroyed robot12!
+Destroyed robot11!
