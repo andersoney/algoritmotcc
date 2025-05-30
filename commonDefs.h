@@ -1,3 +1,5 @@
+#ifndef COMMON_DEF
+#define COMMON_DEF
 
 #define PI 3.1416
 #define TIME_STEP 0.01 // "Speed" of execution
@@ -14,7 +16,7 @@
 #define I_DONT_CARE_COLOR Color(0,0,1)
 #define WAIT_A_LOT_COLOR  Color(0,1,1)
 #define GOING_OUT_COLOR   Color(1,0.7,0)
-#define ID_15_COLOR       Color(255,0.7,0)
+#define ID_1_COLOR        Color(0,255,0)
 #define END_COLOR         Color(0,0,0)
 
 //Msg types
@@ -32,3 +34,5 @@
 
 #define SECURITY_DIST_ENTRANDO 1.5
 #define SECURITY_DIST_SAINDO 1.0
+
+#endif

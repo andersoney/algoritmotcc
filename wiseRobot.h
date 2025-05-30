@@ -11,6 +11,7 @@
 #include "connectionlocal.h"
 #include "commonDefs.h"
 #include "commonConfig.h"
+#include "forcevisualizer.h"
 
 using namespace std;
 using namespace Stg;

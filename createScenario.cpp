@@ -93,6 +93,7 @@ void outPutDefine(std::ofstream &out, int numRobots, int numExp)
 
 int main(int argc, char **argv)
 {
+   cout << "Criando cenário" << endl;
    std::ofstream out;
    if (argc < 3)
    {
@@ -154,14 +155,6 @@ int main(int argc, char **argv)
           << "localization_origin [ 0 0 0 0 ]" << endl
           << ")" << endl
           << endl;
-   // << "model" << endl
-   // << "(" << endl
-   // << "  name \"toDraw\""<< endl
-   // << "  size [0.001 0.001 0.001]"<< endl
-   // << "  pose [0 0 0 0]"<< endl
-   // << "  ctrl \"draw.so\""<< endl
-   // << "  obstacle_return 0" << endl
-   // << ")"<< endl << endl;
 
    for (int i = 0; i < numRobots; i++)
    {

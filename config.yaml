@@ -1,0 +1,9 @@
+server:
+  host: "localhost"
+  port: 8080
+  use_ssl: true
+
+database:
+  user: "admin"
+  password: "secret"
+  timeout: 30

@@ -1,3 +1,6 @@
+#ifndef COMMON_CONFIG
+#define COMMON_CONFIG
+
 #define congestionDangerDist  3.5 //distance between goal and robots for obey protocol
 //#define congestionDangerDist  2.5 //distance between goal and robots for obey protocol
 #define congestionOkDist  1.5 //minor distance to goal
@@ -18,7 +21,12 @@ const int waypoints[5][2] = { {100,100}, {-999999, 100}, {999999,100}/*, {0,-999
 #define Ki 0.5  //constant for repulsion forces of IMPATIENT and GOING robots
 //#define SERVER_FINISH_OUTPUT //if defined, server outputs messages about finished robots
 // #define GENERAL_LOG  //if defined, robots output log messages to stout
-//#define DEBUG_FORCES //If defined, it allow compilation of force visualization codes
+#define DEBUG_FORCES //If defined, it allow compilation of force visualization codes
+#define SHOW_REPULSIVE 
+#define SHOW_TARGET_REPULSIVE 
+#define SHOW_ATTRACTIVE
+#define SHOW_RESULTANT
+// #define SHOW_LINE_REPULSIVE
 
 const double Ka = 2.5; //constant for robot controller
 const double Kr = 3; //constant for robot controller
@@ -31,3 +39,4 @@ const double sameWaypointOffset = 0.5; //maximum distance to consider that robot
 
 //#define MESSAGESLOG //If defined, logs are generated
 
+#endif

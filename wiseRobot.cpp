@@ -36,9 +36,9 @@ void WiseRobot::init(int id, int numRobots, int numExp)
     finished = false;
     stalls = 0;
     alreadyStalled = false;
-    if (m_id == 15)
+    if (m_id == 1)
     {
-        pos->SetColor(ID_15_COLOR);
+        pos->SetColor(ID_1_COLOR);
     }
 }
 
@@ -46,6 +46,11 @@ void WiseRobot::init(int id, int numRobots, int numExp)
 void WiseRobot::finish()
 {
     cout << "Destroyed " << m_name << "!" << endl;
+#ifdef TELEPORT_ON_FINISH
+    Pose p(1000.0, 1000.0, 0.0, 0.0);
+    pos->SetPose(p);
+    pos->Disable();
+#endif
 #ifdef GENERAL_LOG
     log.close();
 #endif
@@ -64,6 +69,7 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
     const std::vector<meters_t> &scan = sensor.ranges;
     uint32_t sample_count = scan.size();
     double min_distance = 180;
+
     for (uint32_t i = 0; i < sample_count; i++)
     {
         distance = scan[i];
@@ -93,8 +99,8 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
             }
             else if (estado == SAINDO)
             {
-                _fx = -Kobs * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dx / distance);
-                _fy = -Kobs * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dy / distance);
+                _fx = -Kobs * multiplicador_repulsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dx / distance);
+                _fy = -Kobs * multiplicador_repulsao * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dy / distance);
             }
 #else
             _fx = -Kobs * (1.0 / distance - 1.0 / (influence * 2)) * (1.0 / pow((double)distance, 2)) * (dx / distance);
@@ -109,10 +115,10 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
     }
 
 #ifdef mudancas
-    if (this.m_id == 1)
-    {
-        cout << "Min distance: " << min_distance << endl;
-    }
+    // if (m_id == 1)
+    // {
+    //     cout << "Min distance: " << min_distance << endl;
+    // }
     if (estado == ENTRANDO)
     {
         if (min_distance < SECURITY_DIST_ENTRANDO)
@@ -136,7 +142,7 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
         }
         else if (multiplicador_repulsao > 1)
         {
-            multiplicador_repulsao -= 0.1;
+            multiplicador_repulsao -= 0.05;
         }
     }
 #endif
@@ -160,10 +166,11 @@ void WiseRobot::walk()
     numIterations++;
 
     // how many times robot stall?
-    if (pos->Stalled())
+    if (pos->Stalled() && !finished)
     {
         if (!alreadyStalled)
         {
+            cout << "Colidiu" << endl;
             stalls++;
             alreadyStalled = true;
         }
@@ -216,7 +223,7 @@ void WiseRobot::walk()
 #ifdef mudancas
     if (estado == ENTRANDO)
     {
-        fx = Ka * fx / norm;
+        fx = Ka * (fx) / norm;
         fy = Ka * fy / norm;
     }
     else if (estado == SAINDO)
@@ -228,6 +235,7 @@ void WiseRobot::walk()
     fx = Ka * fx / norm;
     fy = Ka * fy / norm;
 #endif
+
 #ifdef DEBUG_FORCES
     fv.setAttractiveForces(fx, fy);
 #endif
