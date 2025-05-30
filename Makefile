@@ -5,6 +5,7 @@ LINKFLAGS = `pkg-config --libs stage -lyaml-cpp`
 COMMON_DIR = ../common
 
 run: all
+	@mkdir -p saida saidas worlds
 
 all: coordination.so createScenario
 
@@ -32,7 +33,8 @@ FinalLog.o: ./FinalLog.h ./FinalLog.cpp
 
 clean:
 	@rm -f *.o *.so  server createScenario  *.world
-	
+clean-all: clean
+	@rm -rf saida saidas worlds
 reset:
 	rm -rf nRobos*
 
