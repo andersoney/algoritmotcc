@@ -1,0 +1,72 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+automatic_120_30.world
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_120_30.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot26!
+Destroyed robot5!
+Destroyed robot2!
+Destroyed robot118!
+Destroyed robot80!
+Destroyed robot90!
+Destroyed robot38!
+Destroyed robot20!
+Destroyed robot55!
+Destroyed robot79!
+Destroyed robot16!
+Destroyed robot110!
+Destroyed robot99!
+Destroyed robot4!
+Destroyed robot50!
+Destroyed robot60!
+Destroyed robot63!
+Destroyed robot74!
+Destroyed robot59!
+Destroyed robot94!
+Destroyed robot46!
+Destroyed robot41!
+Destroyed robot115!
+Destroyed robot71!
+Destroyed robot101!
+Destroyed robot29!
+Destroyed robot65!
+Destroyed robot111!
+Destroyed robot87!
+Destroyed robot25!
+Destroyed robot14!
+Destroyed robot93!
+Destroyed robot77!
+Destroyed robot82!
+Destroyed robot84!
+Destroyed robot100!
+Destroyed robot22!
+Destroyed robot10!
+Destroyed robot6!
+Destroyed robot97!
+Destroyed robot44!
+Destroyed robot68!
+Destroyed robot86!
+Destroyed robot33!
+Destroyed robot30!
+Destroyed robot17!
+Destroyed robot48!
+Destroyed robot36!
+Destroyed robot3!
+Destroyed robot89!
+Destroyed robot102!
+Destroyed robot19!
+Destroyed robot21!
+Destroyed robot103!
+Destroyed robot67!
+Destroyed robot54!
+Destroyed robot23!
+Destroyed robot107!
+Destroyed robot53!
+Destroyed robot32!
+Destroyed robot92!
+Destroyed robot42!
+Destroyed robot7!
+Destroyed robot27!
+Destroyed robot24!
+./testar.sh: line 30: 348202 Segmentation fault      (core dumped) stage $GUI worlds/automatic_${num_robot}_${exp}.world

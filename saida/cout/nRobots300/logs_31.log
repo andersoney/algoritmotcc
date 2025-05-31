@@ -1,0 +1,7 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+automatic_300_31.world
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_300_31.world][Include map.inc][Include sick.inc][Include pioneer.inc][41merr[0m: /home/andersoney/algoritmotcc/map.inc:967 : syntax error 5 (/home/yuri.passos/Stage-master/libstage/worldfile.cc ParseTokenTuple)
+[41merr[0m:  Failed to open file worlds/automatic_300_31.world (/home/yuri.passos/Stage-master/libstage/world.cc Load)

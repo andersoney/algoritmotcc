@@ -1,0 +1,6 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+automatic_160_5.world
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_160_5.world][Include map.inc][Include sick.inc][Include pioneer.inc]./testar.sh: line 30: 358727 Segmentation fault      (core dumped) stage $GUI worlds/automatic_${num_robot}_${exp}.world
