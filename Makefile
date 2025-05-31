@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -g -Wall `pkg-config --cflags stage`  -fPIC
-LINKFLAGS = `pkg-config --libs stage -lyaml-cpp` 
+LINKFLAGS = `pkg-config --libs stage` 
 
 COMMON_DIR = ../common
 
