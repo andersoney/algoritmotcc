@@ -1,5 +1,4 @@
 *.world
 *.o
 *.so
-saidas
 createScenario
