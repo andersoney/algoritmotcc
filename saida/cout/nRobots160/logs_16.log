@@ -1,0 +1,50 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+automatic_160_16.world
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_160_16.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+Destroyed robot50!
+Destroyed robot113!
+Destroyed robot97!
+Destroyed robot124!
+Destroyed robot53!
+Destroyed robot108!
+Destroyed robot25!
+Destroyed robot159!
+Destroyed robot51!
+Destroyed robot83!
+Destroyed robot44!
+Destroyed robot54!
+Destroyed robot14!
+Destroyed robot89!
+Destroyed robot95!
+Destroyed robot27!
+Destroyed robot43!
+Destroyed robot121!
+Destroyed robot120!
+Destroyed robot80!
+Destroyed robot137!
+Destroyed robot141!
+Destroyed robot39!
+Destroyed robot116!
+Destroyed robot154!
+Destroyed robot40!
+Destroyed robot63!
+Destroyed robot17!
+Destroyed robot87!
+Destroyed robot145!
+Destroyed robot147!
+Destroyed robot65!
+Destroyed robot118!
+Destroyed robot103!
+Destroyed robot42!
+Destroyed robot138!
+Destroyed robot136!
+Destroyed robot11!
+Destroyed robot52!
+Destroyed robot16!
+Destroyed robot45!
+Destroyed robot140!
+Destroyed robot15!
+./testar.sh: line 30: 361434 Segmentation fault      (core dumped) stage $GUI worlds/automatic_${num_robot}_${exp}.world
