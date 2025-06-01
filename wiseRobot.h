@@ -137,7 +137,7 @@ private:
 	// Alter the values of fx and fy, adding repulsion force.
 	void obstaclesRepulsionForces(double &fx, double &fy);
 	void calculeAttractiveForce(double &fx, double &fy, double &norm);
-	void calculateNormalForce(double &fx, double &fy, double &norm);
+	// void calculateNormalForce(double &fx, double &fy, double &norm);
 	Vec2 rotacionarForca(const Vec2 &forca, double angulo_rad);
 
 #ifdef GENERAL_LOG
