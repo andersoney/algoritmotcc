@@ -173,6 +173,44 @@ Vec2 WiseRobot::rotacionarForca(const Vec2 &forca, double angulo_rad)
         forca.x * sin_a + forca.y * cos_a};
 }
 
+void WiseRobot::calculateNormalForce(double &fx, double &fy, double &norm)
+{
+    bool horario = true;
+    Vec2 p1 = {100, 100};
+    Vec2 p2 = {-999999, 100};
+    Vec2 forca_local;
+
+    double dx = p2.x - p1.x;
+    double dy = p2.y - p1.y;
+
+    // 2. Vetor normal à reta (90°)
+    double nx = horario ? dy : -dy;
+    double ny = horario ? -dx : dx;
+    // 3. Normaliza
+    double len = std::sqrt(nx * nx + ny * ny);
+    if (len == 0)
+        forca_local = {0, 0};
+
+    nx /= len;
+    ny /= len;
+    cout << "Normal unitária: " << nx << " - " << ny << endl;
+
+    // 4. Aplica magnitude proporcional à distância
+    nx *= norm;
+    ny *= norm;
+
+    // 5. Transforma a força para o referencial local do robô
+    Pose pose = pos->GetPose();
+    double cos_r = std::cos(-pose.a); // rotação inversa para referencial do robô
+    double sin_r = std::sin(-pose.a);
+
+    forca_local.x = nx * cos_r - ny * sin_r;
+    forca_local.y = nx * sin_r + ny * cos_r;
+    cout << "Normal unitária: (" << forca_local.x << ", " << forca_local.y << ")" << m_x - 100 << "," << m_y - 100 << " - " << m_th << endl;
+#ifdef SHOW_NORMAL_OUTPUT_FORCE
+    fv.setNormalOutputForce(forca_local.x, forca_local.y);
+#endif
+}
 // Implements the main loop of robot.
 // Also contain robot controller and
 // probabilistic finite state machine codes
@@ -243,6 +281,7 @@ void WiseRobot::walk()
     norm = sqrt(pow(fx, 2) + pow(fy, 2));
     calculeAttractiveForce(fx, fy, norm);
 #ifdef normalForce
+    calculateNormalForce(fx, fy, norm);
 #endif
 #ifdef DEBUG_FORCES
     fv.setAttractiveForces(fx, fy);
