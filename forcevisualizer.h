@@ -27,7 +27,10 @@ class ForceVisualizer : public Visualizer{
    
     //sets repulsive force value by target region
     void setTargetRepulsiveForces(double fxtrep, double fytrep);
-   
+
+    //sets repulsive force value by target region
+    void setNormalOutputForce(double fxno, double fyno);
+
     //sets attractive force value
     void setAttractiveForces(double fxatt, double fyatt);
 
@@ -43,6 +46,9 @@ class ForceVisualizer : public Visualizer{
     
     //repulsive target force values
     double fxtrep,fytrep;
+
+    //normal force on output area
+    double fxno,fyno;
 
     //attractive force values
     double fxatt,fyatt;

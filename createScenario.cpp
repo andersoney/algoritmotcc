@@ -18,6 +18,7 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <stdio.h>
+#include "ConfigFile.h"
 
 using namespace std;
 
@@ -30,17 +31,17 @@ typedef struct coord
    double theta;
 } coord;
 
-bool intersect(coord newCoord, vector<coord> &history)
+bool intersect(coord newCoord, vector<coord> &history, double mindist)
 {
    for (unsigned int i = 0; i < history.size(); i++)
    {
-      if (sqrt(pow(newCoord.x - history.at(i).x, 2) + pow(newCoord.y - history.at(i).y, 2)) < 1.0)
+      if (sqrt(pow(newCoord.x - history.at(i).x, 2) + pow(newCoord.y - history.at(i).y, 2)) < mindist)
          return true;
    }
    return false;
 }
 
-void rand(coord &newCoord, vector<coord> &history)
+void rand(coord &newCoord, vector<coord> &history, double minRadius, double maxRadius, double mindist)
 {
    double r;
    double pho;
@@ -49,20 +50,18 @@ void rand(coord &newCoord, vector<coord> &history)
    while (true)
    {
       r = ((double)rand() / ((double)(RAND_MAX) + (double)(1)));
-      pho = 4.5 + r * 8; // I used this one in the experiments of execution time for all algorithms
-      // pho = 3.5 + r*8; // I used this one to test pho
-      // pho = 5.5 + r*4;
+      pho = minRadius + r * (maxRadius - minRadius);
       r = ((double)rand() / ((double)(RAND_MAX) + (double)(1)));
       theta = 0 + r * 2 * PI;
 
       newCoord.x = pho * cos(theta);
       newCoord.y = pho * sin(theta);
-      newCoord.theta = atan2(0 - newCoord.y, 0 - newCoord.x); // For a while I will use destineY =0 and destineX = 0
+      newCoord.theta = atan2(0 - newCoord.y, 0 - newCoord.x);
 
       newCoord.x = waypoints[0][0] + newCoord.x;
       newCoord.y = waypoints[0][1] + newCoord.y;
 
-      if (!intersect(newCoord, history))
+      if (!intersect(newCoord, history, mindist))
          break;
    }
 }
@@ -73,11 +72,11 @@ void outPutDefine(std::ofstream &out, int numRobots, int numExp)
    int status = mkdir(s.c_str(), 0755);
    if (status == 0)
    {
-      // printf("Pasta criada: %s\n", "saidas");
+      printf("Pasta criada: %s\n", "saidas");
    }
    else if (errno == EEXIST)
    {
-      // printf("Pasta já existe: %s\n", "saidas");
+      printf("Pasta já existe: %s\n", "saidas");
    }
    else
    {
@@ -88,13 +87,29 @@ void outPutDefine(std::ofstream &out, int numRobots, int numExp)
    {
       exit(15);
    }
-   std::cout.rdbuf(out.rdbuf());
+   else
+   {
+   }
+   cout << "Finalizando outputDefine" << endl;
+   cout.rdbuf(out.rdbuf());
+   cout << "Finalizando outputDefine" << endl;
+}
+
+double calcularRaio(int N, double d)
+{
+   const double densidade = 1.5; // Constante de empacotamento hexagonal aproximada
+   return d * std::sqrt(N / densidade);
 }
 
 int main(int argc, char **argv)
 {
    cout << "Criando cenário" << endl;
    std::ofstream out;
+   double D;
+   vector<coord> history;
+   coord tmp;
+
+   cout << "argumentos: " << argc << endl;
    if (argc < 3)
    {
       cerr << "Invalid parameters" << endl;
@@ -102,15 +117,28 @@ int main(int argc, char **argv)
       cerr << "createScenario <file> <numRobots> <num_exp> [video] <aditional_params>" << endl;
       exit(1);
    }
+   ConfigFile cf("config.ini");
+   try
+   {
+      D = atof(cf.valueOf("D").c_str());
+   }
+   catch (string str)
+   {
+      cerr << endl
+           << "Configuration file is incorret: " << str << endl;
+      exit(1);
+   }
 
    int numExp = atoi(argv[3]);
 
+   cout << "Startando definicoes basicas." << endl;
+
    int numRobots = atoi(argv[2]);
-   outPutDefine(out, numRobots, numExp);
+   double raio = calcularRaio(numRobots, 1.5);
+   cout <<"Raio: " <<raio << endl;
+   // outPutDefine(out, numRobots, numExp);
    cout << "Number exp: " << numExp << endl;
    cout << "Number Robot: " << numRobots << endl;
-   vector<coord> history;
-   coord tmp;
    int numRobot = 0;
 
    srand(time(NULL));
@@ -158,7 +186,8 @@ int main(int argc, char **argv)
 
    for (int i = 0; i < numRobots; i++)
    {
-      rand(tmp, history);
+      // cout << "Criando robô: " << i << endl;
+      rand(tmp, history, D, D + 8., 1);
 
       history.push_back(tmp);
 
@@ -167,7 +196,7 @@ int main(int argc, char **argv)
              << "  name \"robot" << numRobot << "\"" << endl
              << "  color \"red\"" << endl
              << "  pose [" << tmp.x << " " << tmp.y << " 0 " << (180 / 3.1416) * tmp.theta << "]" << endl
-             << "  ctrl \"coordination.so " << i << " " << numRobots << " " << numExp << "" << "\"" << endl
+             << "  ctrl \"coordination.so " << i << " " << numRobots << " " << numExp << " " << raio << "\"" << endl
              << ")" << endl
              << endl;
 

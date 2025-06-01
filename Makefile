@@ -9,8 +9,11 @@ run: all
 
 all: coordination.so createScenario
 
-createScenario: createScenario.cpp
-	$(CXX) createScenario.cpp -o createScenario
+ConfigFile.o: ConfigFile.cpp ConfigFile.h
+	$(CXX) -c ConfigFile.cpp -o ConfigFile.o
+
+createScenario: createScenario.cpp ConfigFile.h ConfigFile.o
+	$(CXX) ConfigFile.o createScenario.cpp -o createScenario
 
 coordination.so: connectionlocal.o wiseRobot.o FinalLog.o forcevisualizer.o
 	$(CXX) $(CXXFLAGS) $(LINKFLAGS) FinalLog.o connectionlocal.o wiseRobot.o forcevisualizer.o -o coordination.so -shared

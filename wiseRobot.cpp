@@ -12,7 +12,7 @@
 WiseRobot::WiseRobot(Pool_t *pool) : connection(pool) {}
 
 // Initialize all robot data (pose, connection, velocity, etc.)
-void WiseRobot::init(int id, int numRobots, int numExp)
+void WiseRobot::init(int id, int numRobots, int numExp, double distant_radius_to_finish_in)
 {
     m_id = id;
     m_name = "robot" + intToStr(id);
@@ -21,6 +21,7 @@ void WiseRobot::init(int id, int numRobots, int numExp)
     m_y = pose.y;
     m_th = pose.a;
     estado = ENTRANDO;
+    distant_radius_to_finish = distant_radius_to_finish_in;
     numIterations = numIterationsReachGoal = 0;
 
 #ifdef GENERAL_LOG
@@ -36,10 +37,6 @@ void WiseRobot::init(int id, int numRobots, int numExp)
     finished = false;
     stalls = 0;
     alreadyStalled = false;
-    if (m_id == 1)
-    {
-        pos->SetColor(ID_1_COLOR);
-    }
 }
 
 // Finish robot, freeing some variables and closing files
@@ -115,10 +112,6 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
     }
 
 #ifdef mudancas
-    // if (m_id == 1)
-    // {
-    //     cout << "Min distance: " << min_distance << endl;
-    // }
     if (estado == ENTRANDO)
     {
         if (min_distance < SECURITY_DIST_ENTRANDO)
@@ -151,14 +144,44 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
 #endif
 }
 
+void WiseRobot::calculeAttractiveForce(double &fx, double &fy, double &norm)
+{
+#ifdef mudancas
+    if (estado == ENTRANDO)
+    {
+        fx = Ka * (fx) / norm;
+        fy = Ka * fy / norm;
+    }
+    else if (estado == SAINDO)
+    {
+        fx = CONSTANTE * Ka * fx / norm;
+        fy = CONSTANTE * Ka * fy / norm;
+    }
+#else
+    fx = Ka * fx / norm;
+    fy = Ka * fy / norm;
+#endif
+}
+
+Vec2 WiseRobot::rotacionarForca(const Vec2 &forca, double angulo_rad)
+{
+    double cos_a = std::cos(angulo_rad);
+    double sin_a = std::sin(angulo_rad);
+
+    return {
+        forca.x * cos_a - forca.y * sin_a,
+        forca.x * sin_a + forca.y * cos_a};
+}
+
 // Implements the main loop of robot.
 // Also contain robot controller and
 // probabilistic finite state machine codes
+
 void WiseRobot::walk()
 {
     double fx = 0;
     double fy = 0;
-    double norm = 0;
+
     double angTarget;
     double linAccel;
     double rotAccel;
@@ -170,7 +193,6 @@ void WiseRobot::walk()
     {
         if (!alreadyStalled)
         {
-            cout << "Colidiu" << endl;
             stalls++;
             alreadyStalled = true;
         }
@@ -196,8 +218,7 @@ void WiseRobot::walk()
         numIterationsReachGoal = numIterations;
         numIterations = 0;
     }
-
-    if (finished && (distance(m_x, m_y, waypoints[0][0], waypoints[0][1]) >= DISTANT_RADIUS))
+    if (finished && (distance(m_x, m_y, waypoints[0][0], waypoints[0][1]) >= distant_radius_to_finish))
     {
         connection.finish(m_id, numIterationsReachGoal, numIterations, stalls);
         pos->SetColor(Color(0, 0, 0));
@@ -213,29 +234,16 @@ void WiseRobot::walk()
         finish();
     }
 #endif
-
+    double norm = 0;
     destineX = waypoints[currentWaypoint][0];
     destineY = waypoints[currentWaypoint][1];
 
     fx = (destineX - m_x);
     fy = (destineY - m_y);
     norm = sqrt(pow(fx, 2) + pow(fy, 2));
-#ifdef mudancas
-    if (estado == ENTRANDO)
-    {
-        fx = Ka * (fx) / norm;
-        fy = Ka * fy / norm;
-    }
-    else if (estado == SAINDO)
-    {
-        fx = CONSTANTE * Ka * fx / norm;
-        fy = CONSTANTE * Ka * fy / norm;
-    }
-#else
-    fx = Ka * fx / norm;
-    fy = Ka * fy / norm;
+    calculeAttractiveForce(fx, fy, norm);
+#ifdef normalForce
 #endif
-
 #ifdef DEBUG_FORCES
     fv.setAttractiveForces(fx, fy);
 #endif
@@ -288,7 +296,7 @@ extern "C" int Init(Model *mod, CtrlArgs *args)
     robot->laser->Subscribe(); // starts the laser updates
     robot->pos->Subscribe();   // starts the position updates
 
-    robot->init(atoi(tokens[1].c_str()), atoi(tokens[2].c_str()), atoi(tokens[3].c_str()));
+    robot->init(atoi(tokens[1].c_str()), atoi(tokens[2].c_str()), atoi(tokens[3].c_str()), atof(tokens[4].c_str()));
 #ifdef DEBUG_FORCES
     robot->pos->AddVisualizer(&robot->fv, true);
 #endif

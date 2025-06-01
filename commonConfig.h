@@ -22,10 +22,11 @@ const int waypoints[5][2] = { {100,100}, {-999999, 100}, {999999,100}/*, {0,-999
 //#define SERVER_FINISH_OUTPUT //if defined, server outputs messages about finished robots
 // #define GENERAL_LOG  //if defined, robots output log messages to stout
 #define DEBUG_FORCES //If defined, it allow compilation of force visualization codes
-#define SHOW_REPULSIVE 
-#define SHOW_TARGET_REPULSIVE 
-#define SHOW_ATTRACTIVE
-#define SHOW_RESULTANT
+// #define SHOW_REPULSIVE 
+// #define SHOW_TARGET_REPULSIVE 
+#define SHOW_NORMAL_OUTPUT_FORCE 
+// #define SHOW_ATTRACTIVE
+// #define SHOW_RESULTANT
 // #define SHOW_LINE_REPULSIVE
 
 const double Ka = 2.5; //constant for robot controller

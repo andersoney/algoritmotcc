@@ -22,6 +22,14 @@ void ForceVisualizer::setTargetRepulsiveForces(double fxtrep, double fytrep)
   this->fytrep = fytrep;
 }
 
+// sets repulsive force value by target region
+void ForceVisualizer::setNormalOutputForce(double fxno, double fyno)
+{
+  this->fyno = fyno;
+  this->fyno = fyno;
+}
+
+
 // sets attractive force value
 void ForceVisualizer::setAttractiveForces(double fxatt, double fyatt)
 {
@@ -69,6 +77,11 @@ void ForceVisualizer::Visualize(Model *mod, Camera *cam)
     glColor3f(0, 0, 1); // Blue
     _glVertex2f(m_x, m_y);
     _glVertex2f(fxrep, fyrep);
+  #endif
+  #ifdef SHOW_NORMAL_OUTPUT_FORCE
+    glColor3f(0, 0, 1); // Blue
+    _glVertex2f(m_x, m_y);
+    _glVertex2f(fxno, fyno);
   #endif
   #ifdef SHOW_TARGET_REPULSIVE
     glColor3f(0, 1, 1); // Cyan
