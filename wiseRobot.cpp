@@ -42,7 +42,7 @@ void WiseRobot::init(int id, int numRobots, int numExp, double distant_radius_to
 // Finish robot, freeing some variables and closing files
 void WiseRobot::finish()
 {
-    cout << "Destroyed " << m_name << "!" << endl;
+    // cout << "Destroyed " << m_name << "!" << endl;
 #ifdef TELEPORT_ON_FINISH
     Pose p(1000.0, 1000.0, 0.0, 0.0);
     pos->SetPose(p);
