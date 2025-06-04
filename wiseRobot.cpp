@@ -227,7 +227,7 @@ void WiseRobot::walk()
     numIterations++;
 
     // how many times robot stall?
-    if (pos->Stalled() && !finished)
+    if (pos->Stalled())
     {
         if (!alreadyStalled)
         {
