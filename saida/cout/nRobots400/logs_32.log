@@ -9,4 +9,4 @@ Number Robot: 400
 automatic_400_32.world
 Startando stage
 Stage 4.3.0 [GUI disabled]
- [Loading worlds/automatic_400_32.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+ [Loading worlds/automatic_400_32.world][Include map.inc][Include sick.inc][Include pioneer.inc]./testar.sh: line 31: 1765533 Segmentation fault      (core dumped) stage $GUI worlds/automatic_${num_robot}_${exp}.world
