@@ -1,0 +1,12 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 4
+Startando definicoes basicas.
+Raio: 17.3205
+Number exp: 22
+Number Robot: 200
+automatic_200_22.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_200_22.world][Include map.inc][Include sick.inc][Include pioneer.inc]
