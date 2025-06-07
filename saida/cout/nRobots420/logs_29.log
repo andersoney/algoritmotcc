@@ -10,3 +10,27 @@ automatic_420_29.world
 Startando stage
 Stage 4.3.0 [GUI disabled]
  [Loading worlds/automatic_420_29.world][Include map.inc][Include sick.inc][Include pioneer.inc]./testar.sh: line 31: 2717847 Segmentation fault      (core dumped) stage $GUI worlds/automatic_${num_robot}_${exp}.world
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 4
+Startando definicoes basicas.
+Raio: 25.0998
+Number exp: 29
+Number Robot: 420
+automatic_420_29.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_420_29.world][Include map.inc][Include sick.inc][Include pioneer.inc]Terminated
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 4
+Startando definicoes basicas.
+Raio: 25.0998
+Number exp: 29
+Number Robot: 420
+automatic_420_29.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_420_29.world][Include map.inc][Include sick.inc][Include pioneer.inc]

@@ -22,9 +22,9 @@ shift 3
 ./createScenario worlds/automatic_${num_robot}_${exp} ${num_robot} ${exp} ${video} ${@}
 echo "automatic_${num_robot}_${exp}.world"
 # if [ "$video" == "video" ]; then  
-#   TIMEOUT=20000000m
+#   TIMEOUT=200000000000m
 # else
-#   TIMEOUT=10000m
+#   TIMEOUT=1000000m
 # fi  
 # timeout $TIMEOUT stage $GUI worlds/automatic_${num_robot}_${exp}.world 
 echo "Startando stage"
