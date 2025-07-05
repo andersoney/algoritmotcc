@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def plot_csv(csv_path, x_col, y_col):
     # Lê o CSV com cabeçalho
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path,sep=';')
 
     # Verifica se as colunas existem
     if x_col not in df.columns or y_col not in df.columns:
@@ -26,7 +26,7 @@ def plot_csv(csv_path, x_col, y_col):
 
 if __name__ == "__main__":
     # Exemplo de uso
-    caminho_csv = "PCCEEV2_SAIDA/logs.csv"
-    coluna_x = "num_robots"
-    coluna_y = "reachingTargetTime"
+    caminho_csv = "csv_agrupado_com_labels.csv"
+    coluna_x = "numTotalIterations"
+    coluna_y = "num_robot_dir"
     plot_csv(caminho_csv, coluna_x, coluna_y)

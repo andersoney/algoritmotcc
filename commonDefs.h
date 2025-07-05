@@ -34,6 +34,7 @@
 
 // #define SECURITY_DIST_ENTRANDO 1.8
 // #define SECURITY_DIST_SAINDO 1.2
+#define USAR_PASTAS
 //Compute euclidian distance between two 2D points coordinates
 #define distance(x1, y1, x2, y2) hypot((x1) - (x2), (y1) - (y2))
 

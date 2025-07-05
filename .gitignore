@@ -3,3 +3,8 @@
 *.so
 createScenario
 createScenario
+bin
+lib
+pyvenv.cfg
+lib64
+share

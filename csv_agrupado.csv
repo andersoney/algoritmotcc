@@ -1,0 +1,48 @@
+import pandas as pd
+from pathlib import Path
+
+def agrupar_logs_por_linha(diretorio_saida, arquivo_destino, labels_internos):
+    diretorio = Path(diretorio_saida)
+    registros = []
+
+    for pasta_robot in sorted(diretorio.glob("NRobot*")):
+        if not pasta_robot.is_dir():
+            continue
+
+        num_robot = pasta_robot.name.replace("NRobot", "")
+
+        for arquivo_log in sorted(pasta_robot.glob("log_*.csv")):
+            num_exp = arquivo_log.stem.replace("log_", "")
+
+            with open(arquivo_log, 'r', encoding='utf-8') as f:
+                for linha in f:
+                    linha = linha.strip()
+                    if not linha:
+                        continue  # pula linha vazia
+
+                    valores = linha.split(';')
+
+                    if len(valores) != len(labels_internos):
+                        print(f"Aviso: linha ignorada em {arquivo_log} por quantidade de colunas diferente.")
+                        continue
+
+                    registro = {
+                        'num_robot_dir': int(num_robot),
+                        'num_exp_file': int(num_exp),
+                    }
+
+                    # adiciona os valores mapeados aos labels
+                    registro.update(dict(zip(labels_internos, valores)))
+
+                    registros.append(registro)
+
+    if registros:
+        df_final = pd.DataFrame(registros)
+        df_final.to_csv(arquivo_destino, sep=';', index=False)
+        print(f"Arquivo gerado: {arquivo_destino}")
+    else:
+        print("Nenhum registro válido encontrado.")
+
+if __name__ == "__main__":
+    labels_dados = ["reachingTargetTime", "outra_coluna", "mais_uma_coluna"]  # Exemplo: substitua pelos seus labels reais
+    agrupar_logs_por_linha("saidas", "csv_agrupado_por_linha.csv", labels_dados)
