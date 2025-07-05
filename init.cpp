@@ -53,8 +53,10 @@ extern "C" int Init(Model *mod, CtrlArgs *args)
     robot->theWorld = mod->GetWorld();
     robot->laser->Subscribe(); // starts the laser updates
     robot->pos->Subscribe();   // starts the position updates
-
-    robot->init(atoi(tokens[1].c_str()), atoi(tokens[2].c_str()), atoi(tokens[3].c_str()), atof(tokens[4].c_str()), tokens[5]);
+    robot->init(atoi(tokens[1].c_str()), atoi(tokens[2].c_str()),
+                atoi(tokens[3].c_str()), atof(tokens[4].c_str()),
+                tokens[5],
+                atof(tokens[6].c_str()), atof(tokens[7].c_str()));
 #ifdef DEBUG_FORCES
     robot->pos->AddVisualizer(&robot->fv, true);
 #endif

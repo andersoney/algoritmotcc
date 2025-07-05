@@ -105,7 +105,7 @@ int main(int argc, char **argv)
 {
    cout << "Criando cenário" << endl;
    std::ofstream out;
-   double D;
+   double D, SECURITY_DIST_ENTRANDO, SECURITY_DIST_SAINDO;
    vector<coord> history;
    coord tmp;
 
@@ -121,6 +121,8 @@ int main(int argc, char **argv)
    try
    {
       D = atof(cf.valueOf("D").c_str());
+      SECURITY_DIST_ENTRANDO = atof(cf.valueOf("SECURITY_DIST_ENTRANDO").c_str());
+      SECURITY_DIST_SAINDO = atof(cf.valueOf("SECURITY_DIST_SAINDO").c_str());
    }
    catch (string str)
    {
@@ -128,6 +130,7 @@ int main(int argc, char **argv)
            << "Configuration file is incorret: " << str << endl;
       exit(1);
    }
+   cout << SECURITY_DIST_ENTRANDO << ":" << SECURITY_DIST_SAINDO << endl;
 
    int numExp = atoi(argv[3]);
    string patch = "saidas";
@@ -202,7 +205,8 @@ int main(int argc, char **argv)
              << "  name \"robot" << numRobot << "\"" << endl
              << "  color \"red\"" << endl
              << "  pose [" << tmp.x << " " << tmp.y << " 0 " << (180 / 3.1416) * tmp.theta << "]" << endl
-             << "  ctrl \"coordination.so " << i << " " << numRobots << " " << numExp << " " << raio << " " << patch << "\"" << endl
+             << "  ctrl \"coordination.so " << i << " " << numRobots << " " << numExp << " " << raio << " " << patch << " "
+             << SECURITY_DIST_ENTRANDO << " " << SECURITY_DIST_SAINDO << "\"" << endl
              << ")" << endl
              << endl;
 

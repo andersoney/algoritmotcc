@@ -12,7 +12,8 @@ PCCEEV2::PCCEEV2(Pool_t *pool) : connection(pool)
 }
 
 // Initialize all robot data (pose, connection, velocity, etc.)
-void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_finish_in, string patch)
+void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_finish_in, string patch,
+                   double _SECURITY_DIST_ENTRANDO, double _SECURITY_DIST_SAINDO)
 {
     m_id = id;
     m_name = "robot" + intToStr(id);
@@ -23,6 +24,8 @@ void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_f
     estado = ENTRANDO;
     distant_radius_to_finish = distant_radius_to_finish_in;
     numIterations = numIterationsReachGoal = 0;
+    SECURITY_DIST_ENTRANDO = _SECURITY_DIST_ENTRANDO;
+    SECURITY_DIST_SAINDO = SECURITY_DIST_SAINDO;
 
 #ifdef GENERAL_LOG
     log.open(("logs/" + m_name).c_str());
@@ -269,7 +272,7 @@ void PCCEEV2::walk()
         // connection.finish(m_id, numIterationsReachGoal, numIterations, stalls, theWorld->SimTimeNow());
         FinalLog::refresh(numIterationsReachGoal, numIterations, 0, stalls, theWorld->SimTimeNow());
         FinalLog::finish();
-        pos->SetColor(Color(0, 0, 0));
+        pos->SetColor(END_COLOR);
         finish();
         finished = false;
     }
@@ -280,7 +283,7 @@ void PCCEEV2::walk()
         // connection.finish(m_id, numIterations, 0, stalls, theWorld->SimTimeNow());
         FinalLog::refresh(numIterationsReachGoal, numIterations, 0, stalls, theWorld->SimTimeNow());
         FinalLog::finish();
-        pos->SetColor(Color(0, 0, 0));
+        pos->SetColor(END_COLOR);
         finish();
     }
 #endif

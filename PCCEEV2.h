@@ -27,7 +27,11 @@ class PCCEEV2
 {
 public:
 	// Initialize all robot data (pose, connection, velocity, etc.)
-	void init(int id, int numRobots, int numExp, double distant_radius_to_finish, string patch);
+	void init(
+		int id,
+		int numRobots, int numExp, double distant_radius_to_finish,
+		string patch,
+		double SECURITY_DIST_ENTRANDO, double SECURITY_DIST_SAINDO);
 
 	// Finish robot, freeing some variables and closing files
 	void finish();
@@ -52,6 +56,8 @@ private:
 	// Variavel para o gerenciamento dos estados que serão 2, entrando e saindo.
 	int estado;
 	double multiplicador_repulsao = 1;
+	double SECURITY_DIST_ENTRANDO = 2;
+	double SECURITY_DIST_SAINDO = 2;
 	FinalLog *finalLog;
 	int qtd_sem_aumentar_repulsao = 0;
 
