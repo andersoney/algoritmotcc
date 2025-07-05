@@ -38,7 +38,7 @@ void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_f
     h += std::to_string(numExp);
     FinalLog::init(h);
 #else
-    FinalLog::init(patch + "/logs");
+    FinalLog::init(patch + "/logs.csv");
 #endif
 
     init_position_data();
