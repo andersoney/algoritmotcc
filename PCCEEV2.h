@@ -5,6 +5,7 @@
 */
 
 #include <stage.hh>
+#include "option.hh"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -16,20 +17,17 @@
 using namespace std;
 using namespace Stg;
 
-#define PI 3.1416
-#define TIME_STEP 0.01 // "Speed" of execution
-
 struct Vec2
 {
 	double x, y;
 };
 
 /*Implements a robot without coordination*/
-class WiseRobot
+class PCCEEV2
 {
 public:
 	// Initialize all robot data (pose, connection, velocity, etc.)
-	void init(int id, int numRobots, int numExp, double distant_radius_to_finish);
+	void init(int id, int numRobots, int numExp, double distant_radius_to_finish, string patch);
 
 	// Finish robot, freeing some variables and closing files
 	void finish();
@@ -38,14 +36,14 @@ public:
 	// Also contain robot controller and
 	// probabilistic finite state machine codes
 	// Constructor. pool is the message pool to send and receive msgs
-	WiseRobot(Pool_t *pool);
+	PCCEEV2(Pool_t *pool);
 
 	void walk();
 
 	// Pointers to classes used in Stage
 	ModelPosition *pos;
 	ModelRanger *laser;
-	World* theWorld;
+	World *theWorld;
 // This member allows visualize forces for debug
 #ifdef DEBUG_FORCES
 	ForceVisualizer fv;
@@ -54,6 +52,7 @@ private:
 	// Variavel para o gerenciamento dos estados que serão 2, entrando e saindo.
 	int estado;
 	double multiplicador_repulsao = 1;
+	FinalLog *finalLog;
 	int qtd_sem_aumentar_repulsao = 0;
 
 	// Initialize robot position data, i.e. angular and linear velocities,
@@ -149,4 +148,4 @@ private:
 // Function used on Stage simulation. It specifies
 // what the robot will do while walking
 // See commonMethods.cpp for implementation in the folder common
-int PositionUpdate(Model *pos, WiseRobot *robot);
+int PositionUpdate(Model *pos, PCCEEV2 *robot);

@@ -4,15 +4,15 @@
   using this method.
 */
 
-#include "wiseRobot.h"
-
-#include "commonMethods.cpp"
+#include "PCCEEV2.h"
 
 // Constructor. pool is the message pool to send and receive msgs
-WiseRobot::WiseRobot(Pool_t *pool) : connection(pool) {}
+PCCEEV2::PCCEEV2(Pool_t *pool) : connection(pool)
+{
+}
 
 // Initialize all robot data (pose, connection, velocity, etc.)
-void WiseRobot::init(int id, int numRobots, int numExp, double distant_radius_to_finish_in)
+void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_finish_in, string patch)
 {
     m_id = id;
     m_name = "robot" + intToStr(id);
@@ -28,7 +28,12 @@ void WiseRobot::init(int id, int numRobots, int numExp, double distant_radius_to
     log.open(("logs/" + m_name).c_str());
 #endif
 
-    connection.init_connection("saidas", numRobots, numExp);
+    // connection.init_connection("saidas", numRobots, numExp);
+
+    std::string h = patch + "/nRobots";
+    h += std::to_string(numRobots) + "/logs_";
+    h += std::to_string(numExp);
+    FinalLog::init(h);
 
     init_position_data();
 
@@ -40,7 +45,7 @@ void WiseRobot::init(int id, int numRobots, int numExp, double distant_radius_to
 }
 
 // Finish robot, freeing some variables and closing files
-void WiseRobot::finish()
+void PCCEEV2::finish()
 {
     // cout << "Destroyed " << m_name << "!" << endl;
 #ifdef TELEPORT_ON_FINISH
@@ -54,7 +59,7 @@ void WiseRobot::finish()
 }
 
 // Alter the values of fx and fy, adding repulsion force.
-void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
+void PCCEEV2::obstaclesRepulsionForces(double &fx, double &fy)
 {
     double Kobs = Ki; // Weight of the obstacle repulsion forces
     double distance;
@@ -144,7 +149,7 @@ void WiseRobot::obstaclesRepulsionForces(double &fx, double &fy)
 #endif
 }
 
-void WiseRobot::calculeAttractiveForce(double &fx, double &fy, double &norm)
+void PCCEEV2::calculeAttractiveForce(double &fx, double &fy, double &norm)
 {
 #ifdef mudancas
     if (estado == ENTRANDO)
@@ -163,7 +168,7 @@ void WiseRobot::calculeAttractiveForce(double &fx, double &fy, double &norm)
 #endif
 }
 
-Vec2 WiseRobot::rotacionarForca(const Vec2 &forca, double angulo_rad)
+Vec2 PCCEEV2::rotacionarForca(const Vec2 &forca, double angulo_rad)
 {
     double cos_a = std::cos(angulo_rad);
     double sin_a = std::sin(angulo_rad);
@@ -173,7 +178,7 @@ Vec2 WiseRobot::rotacionarForca(const Vec2 &forca, double angulo_rad)
         forca.x * sin_a + forca.y * cos_a};
 }
 
-void WiseRobot::calculateNormalForce(double &fx, double &fy, double &norm)
+void PCCEEV2::calculateNormalForce(double &fx, double &fy, double &norm)
 {
     bool horario = true;
     Vec2 p1 = {100, 100};
@@ -215,7 +220,7 @@ void WiseRobot::calculateNormalForce(double &fx, double &fy, double &norm)
 // Also contain robot controller and
 // probabilistic finite state machine codes
 
-void WiseRobot::walk()
+void PCCEEV2::walk()
 {
     double fx = 0;
     double fy = 0;
@@ -258,7 +263,9 @@ void WiseRobot::walk()
     }
     if (finished && (distance(m_x, m_y, waypoints[0][0], waypoints[0][1]) >= distant_radius_to_finish))
     {
-        connection.finish(m_id, numIterationsReachGoal, numIterations, stalls, theWorld->SimTimeNow());
+        // connection.finish(m_id, numIterationsReachGoal, numIterations, stalls, theWorld->SimTimeNow());
+        FinalLog::refresh(numIterationsReachGoal, numIterations, 0, stalls, theWorld->SimTimeNow());
+        FinalLog::finish();
         pos->SetColor(Color(0, 0, 0));
         finish();
         finished = false;
@@ -267,7 +274,9 @@ void WiseRobot::walk()
 #ifdef CHECK_DEAD_ROBOTS
     if (numIterations > DEAD_ITERATIONS)
     {
-        connection.finish(m_id, numIterations, 0, stalls, theWorld->SimTimeNow());
+        // connection.finish(m_id, numIterations, 0, stalls, theWorld->SimTimeNow());
+        FinalLog::refresh(numIterationsReachGoal, numIterations, 0, stalls, theWorld->SimTimeNow());
+        FinalLog::finish();
         pos->SetColor(Color(0, 0, 0));
         finish();
     }
@@ -316,28 +325,96 @@ void WiseRobot::walk()
 #endif
 }
 
-Pool_t pool;
-FinalLog finallog();
-// Pointer to a new robot.
-// Every call of this library will create a new robot
-// using this pointer.
-WiseRobot *robot;
-
-extern "C" int Init(Model *mod, CtrlArgs *args)
+// returns the distance between a robot and your goal
+double PCCEEV2::pho()
 {
-    robot = new WiseRobot(&pool);
-    vector<string> tokens;
-    Tokenize(args->worldfile, tokens);
-    robot->pos = (ModelPosition *)mod;
-    robot->pos->AddCallback(Model::CB_UPDATE, (model_callback_t)PositionUpdate, robot);
-    robot->laser = (ModelRanger *)mod->GetChild("ranger:1");
-    robot->theWorld = mod->GetWorld();
-    robot->laser->Subscribe(); // starts the laser updates
-    robot->pos->Subscribe();   // starts the position updates
+    return hypot(m_x - destineX, m_y - destineY);
+}
 
-    robot->init(atoi(tokens[1].c_str()), atoi(tokens[2].c_str()), atoi(tokens[3].c_str()), atof(tokens[4].c_str()));
-#ifdef DEBUG_FORCES
-    robot->pos->AddVisualizer(&robot->fv, true);
-#endif
-    return 0;
+// Initializes values for sensing with laser, depending on the world file used.
+void PCCEEV2::init_laser()
+{
+    // init laser configuration for use in getBearing()
+    ModelRanger::Sensor sensor = laser->GetSensors()[0];
+    LASER_FOV = rtod(sensor.fov);
+    LASER_SAMPLES = sensor.sample_count;
+    laser->vis.showArea.set(0);
+}
+
+// Used for get the angle of some laser beam on respect to the orientation of robot
+inline double PCCEEV2::getBearing(int i)
+{
+    return dtor(-LASER_FOV / 2 + (LASER_FOV / (LASER_SAMPLES - 1)) * i);
+}
+
+// Initialize robot position data, i.e. angular and linear velocities,
+// initial waypoint to search and seed to random number generator
+void PCCEEV2::init_position_data()
+{
+    currentWaypoint = 0;
+    linSpeed = 0;
+    rotSpeed = 0;
+    srand(m_id * time(NULL));
+}
+
+// Convert a integer to string
+string PCCEEV2::intToStr(int integer)
+{
+    ostringstream stringNumero;
+
+    stringNumero << integer;
+
+    return stringNumero.str();
+}
+
+// Saturate  a vector to a limit modulo, keeping scale.
+void PCCEEV2::saturation(double &x, double &y, double limit)
+{
+    double factor;
+
+    // Saturation (keeping scale between x and y)
+    if ((x > limit) || (y > limit))
+    {
+        if (x > y)
+        {
+            factor = x / limit;
+            x = x / factor;
+            y = y / factor;
+        }
+        else
+        {
+            factor = y / limit;
+            y = y / factor;
+            x = x / factor;
+        }
+    }
+    if ((x < -limit) || (y < -limit))
+    {
+        if (x < y)
+        {
+            factor = x / -limit;
+            x = x / factor;
+            y = y / factor;
+        }
+        else
+        {
+            factor = y / -limit;
+            y = y / factor;
+            x = x / factor;
+        }
+    }
+}
+
+// Substract two angle values (in radians). The result value lies between
+//-2 PI and 2 PI.
+double PCCEEV2::angDiff(double end, double begin)
+{
+    double returnMe = end - begin;
+
+    if (returnMe > PI)
+        returnMe = -(2 * PI - returnMe);
+    else if (returnMe < -PI)
+        returnMe = 2 * PI + returnMe;
+
+    return returnMe;
 }

@@ -34,5 +34,35 @@
 
 #define SECURITY_DIST_ENTRANDO 1.5
 #define SECURITY_DIST_SAINDO 1.0
+//Compute euclidian distance between two 2D points coordinates
+#define distance(x1, y1, x2, y2) hypot((x1) - (x2), (y1) - (y2))
+
+//#define congestionDangerDist  2.5 //distance between goal and robots for obey protocol
+#define congestionOkDist  1.5 //minor distance to goal
+#define DISTANT_RADIUS 10.0 //maximum radius after that robot reaches goal
+#define PROB_CYCLES 40 //number of cycles test changing state probability 
+#define MAX_MISSES 30 //number of checks (or cycles) that there is not any robot in front
+//Waypoints chosen randomly
+//const int waypoints[5][2] = { {0,0}, {-999999, 0}, {999999,0}/*, {0,-999999}, {0,999999}*/ };
+#define NUMBER_OF_WAYPOINTS 2 //number of waypoints used in all tests
+#define Y_MAIS_PROXIMO 0 //Esta variável define se o robô irá para o y da reta mais próximo de sua posição
+#define DEAD_ITERATIONS 100000 //Maximum iterations for a experiment
+#define CHECK_DEAD_ROBOTS //if enable, consider the above maximum number of iteration
+#define MSG_CYCLES 25 //number of cycles to wait until send next message
+//#define Ke 0.5   //constant for repulsion forces of WAIT and LOCKED robots
+//#define Ki 0.5  //constant for repulsion forces of IMPATIENT and GOING robots
+#define Ke 0.5   //constant for repulsion forces of WAIT and LOCKED robots
+#define Ki 0.5  //constant for repulsion forces of IMPATIENT and GOING robots
+//#define SERVER_FINISH_OUTPUT //if defined, server outputs messages about finished robots
+// #define GENERAL_LOG  //if defined, robots output log messages to stout
+#define DEBUG_FORCES //If defined, it allow compilation of force visualization codes
+// #define SHOW_REPULSIVE 
+// #define SHOW_TARGET_REPULSIVE 
+#define SHOW_NORMAL_OUTPUT_FORCE 
+// #define SHOW_ATTRACTIVE
+// #define SHOW_RESULTANT
+// #define SHOW_LINE_REPULSIVE
+
+//#define MESSAGESLOG //If defined, logs are generated
 
 #endif

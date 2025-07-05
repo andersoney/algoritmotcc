@@ -7,7 +7,7 @@ using namespace std;
 class FinalLog
 {
 private:
-  FinalLog *instance;
+  static FinalLog *INSTANCE;
   static unsigned int num_robots, numFinished;
   static bool initiated;
   static ofstream logFile;
@@ -17,7 +17,7 @@ private:
   static unsigned int numMaxIterationsExitGoal;    // Maximum number of iterations to exit from goal
   static unsigned int numTotalStalls;              // number of times that the robots stalled
   static unsigned int numMsgs;                     // number of messages
-  static unsigned long int reachingTargetTime;          // number of messages
+  static unsigned long int reachingTargetTime;     // number of messages
 
   static void saveLog();
 
@@ -26,7 +26,6 @@ private:
   static string path;
 
 public:
-  static FinalLog *getInstance();
   static void init(string path);
 
   static void init(double prob);

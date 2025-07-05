@@ -130,12 +130,18 @@ int main(int argc, char **argv)
    }
 
    int numExp = atoi(argv[3]);
+   string patch = "saidas";
+   if (argc >= 5)
+   {
+      patch = argv[4];
+   }
+   cout << patch << endl;
 
    cout << "Startando definicoes basicas." << endl;
 
    int numRobots = atoi(argv[2]);
    double raio = calcularRaio(numRobots, 1.5);
-   cout <<"Raio: " <<raio << endl;
+   cout << "Raio: " << raio << endl;
    // outPutDefine(out, numRobots, numExp);
    cout << "Number exp: " << numExp << endl;
    cout << "Number Robot: " << numRobots << endl;
@@ -196,7 +202,7 @@ int main(int argc, char **argv)
              << "  name \"robot" << numRobot << "\"" << endl
              << "  color \"red\"" << endl
              << "  pose [" << tmp.x << " " << tmp.y << " 0 " << (180 / 3.1416) * tmp.theta << "]" << endl
-             << "  ctrl \"coordination.so " << i << " " << numRobots << " " << numExp << " " << raio << "\"" << endl
+             << "  ctrl \"coordination.so " << i << " " << numRobots << " " << numExp << " " << raio << " " << patch << "\"" << endl
              << ")" << endl
              << endl;
 

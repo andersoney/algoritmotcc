@@ -14,6 +14,11 @@ fi
 if [ "$3" == "gui" ]; then  
   GUI=""  
 fi  
+if [ -n "$4" ]; then
+    var="$4"
+else
+    var="saidas"
+fi
  
 export STAGEPATH=$PWD 
 echo $STAGEPATH 
@@ -28,4 +33,5 @@ echo "automatic_${num_robot}_${exp}.world"
 # fi  
 # timeout $TIMEOUT stage $GUI worlds/automatic_${num_robot}_${exp}.world 
 echo "Startando stage"
+mkdir -p "${var}/nRobots$num_robot"
 stage $GUI worlds/automatic_${num_robot}_${exp}.world 

@@ -35,25 +35,13 @@ void ConnectionLocal::sendMsg(double *msg, int size_msg)
   numMessages++;
 }
 
-// initialize the informations for connection
-void ConnectionLocal::init_connection(string path)
-{
-  numMessages = 0;
-  pool_id = pool->size();
-  MessageContainer s;
-  pool->push_back(s);
-  FinalLog::init(path);
-}
 void ConnectionLocal::init_connection(string path, int numRobot, int numExp)
 {
-  std::string h = path + "/nRobots";
-  h += std::to_string(numRobot) + "/logs_";
-  h += std::to_string(numExp);
+  
   numMessages = 0;
   pool_id = pool->size();
   MessageContainer s;
   pool->push_back(s);
-  FinalLog::init(h);
 }
 
 void ConnectionLocal::init_connection(double prob)

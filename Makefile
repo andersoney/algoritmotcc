@@ -15,17 +15,19 @@ ConfigFile.o: ConfigFile.cpp ConfigFile.h
 createScenario: createScenario.cpp ConfigFile.h ConfigFile.o
 	$(CXX) ConfigFile.o createScenario.cpp -o createScenario
 
-coordination.so: connectionlocal.o wiseRobot.o FinalLog.o forcevisualizer.o
-	$(CXX) $(CXXFLAGS) $(LINKFLAGS) FinalLog.o connectionlocal.o wiseRobot.o forcevisualizer.o -o coordination.so -shared
+coordination.so: connectionlocal.o PCCEEV2.o FinalLog.o forcevisualizer.o init.o
+	$(CXX) $(CXXFLAGS) $(LINKFLAGS) FinalLog.o connectionlocal.o PCCEEV2.o forcevisualizer.o init.o -o coordination.so -shared
 
-wiseRobot.o: wiseRobot.cpp wiseRobot.h ./commonConfig.h \
-./commonMethods.cpp ./commonDefs.h \
+PCCEEV2.o: PCCEEV2.cpp PCCEEV2.h ./commonConfig.h ./commonDefs.h \
 ./FinalLog.h ./FinalLog.cpp \
 ./connectionlocal.h ./connectionlocal.cpp
-	$(CXX) $(CXXFLAGS) $(LINKFLAGS) -c wiseRobot.cpp
+	$(CXX) $(CXXFLAGS) $(LINKFLAGS) -c PCCEEV2.cpp
+
+init.o: init.cpp PCCEEV2.cpp
+	$(CXX) $(CXXFLAGS) $(LINKFLAGS) -c init.cpp
 
 forcevisualizer.o: forcevisualizer.cpp forcevisualizer.h ./commonConfig.h \
-./commonMethods.cpp ./commonDefs.h 
+./commonDefs.h 
 	$(CXX) $(CXXFLAGS) $(LINKFLAGS) -c forcevisualizer.cpp
 
 connectionlocal.o: ./connectionlocal.h ./connectionlocal.cpp

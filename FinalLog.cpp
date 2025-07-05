@@ -11,6 +11,7 @@ unsigned int FinalLog::numTotalIterationsExitGoal;  // Total number of iteration
 unsigned int FinalLog::numMaxIterationsReachGoal;   // Maximum number of iterations to reach the goal
 unsigned int FinalLog::numMaxIterationsExitGoal;    // Maximum number of iterations to exit from goal
 unsigned int FinalLog::numTotalStalls;              // number of times that the robots stalled
+FinalLog *FinalLog::INSTANCE;                       // number of messages
 unsigned int FinalLog::numMsgs;                     // number of messages
 unsigned long int FinalLog::reachingTargetTime;     // number of messages
 string FinalLog::path;
@@ -81,7 +82,7 @@ void FinalLog::saveLog()
     // strs << prob;
     // std::string probStr = strs.str();
     // std::string probStr = std::to_string(prob);
-
+    cout << path << endl;
     logFile.open((path.c_str()));
     // logFile.open(path);
     logFile << numTotalIterationsReachGoal + numTotalIterationsExitGoal << endl;
@@ -109,33 +110,5 @@ void FinalLog::finish()
         saveLog();
 
         exit(0);
-
-        // kill STAGE pid in file pid.txt
-        /*string line,line2;
-    bool OK = false;
-    ifstream pid((std::string("pid")+probStr+std::string(".txt")).c_str());
-    if (pid.is_open())
-    {
-      if (pid.good()) {
-        char line_c[256];
-        pid.getline (line_c,256);
-        line = line_c;
-        //also kill SLEEP pid
-        if (pid.good()){
-          pid.getline (line_c,256);
-          line2 = line_c;
-          OK = true;
-        }
-      }
-    }
-    pid.close();
-    if (OK) {
-      string command;
-      command = "kill -s TERM ";
-      command += line;
-      command += ' ';
-      command += line2;
-      system(command.c_str());
-      }*/
     }
 }
