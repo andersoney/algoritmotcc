@@ -28,12 +28,15 @@ void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_f
     log.open(("logs/" + m_name).c_str());
 #endif
 
-    // connection.init_connection("saidas", numRobots, numExp);
-
+// connection.init_connection("saidas", numRobots, numExp);
+#ifdef USAR_PASTAS
     std::string h = patch + "/nRobots";
     h += std::to_string(numRobots) + "/logs_";
     h += std::to_string(numExp);
     FinalLog::init(h);
+#else
+    FinalLog::init(patch + "/logs");
+#endif
 
     init_position_data();
 

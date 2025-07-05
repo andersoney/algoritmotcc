@@ -19,7 +19,7 @@ double FinalLog::prob;
 
 using namespace std;
 
-void FinalLog::init(string p)
+void FinalLog::init(string _patch)
 {
     if (!initiated)
     {
@@ -34,7 +34,7 @@ void FinalLog::init(string p)
         num_robots = 0;
         // prob = p;
         // reachingTargetTime=15;
-        path = p;
+        path = _patch;
     }
     num_robots++;
 }
@@ -75,25 +75,57 @@ void FinalLog::refresh(unsigned int numIterationsReachGoal,
     if (numIterationsExitGoal > numMaxIterationsExitGoal)
         numMaxIterationsExitGoal = numIterationsExitGoal;
 }
+int FinalLog::countLines(const std::string &filename)
+{
+    std::ifstream file(filename);
+    if (!file.is_open())
+    {
+        std::cerr << "Erro ao abrir o arquivo\n";
+        return -1;
+    }
 
+    int count = 0;
+    std::string line;
+    while (std::getline(file, line))
+    {
+        ++count;
+    }
+    file.close();
+    return count;
+}
 void FinalLog::saveLog()
 {
     // std::ostringstream strs;
     // strs << prob;
     // std::string probStr = strs.str();
     // std::string probStr = std::to_string(prob);
+    logFile.open((path.c_str()), ios::app);
     cout << path << endl;
-    logFile.open((path.c_str()));
-    // logFile.open(path);
-    logFile << numTotalIterationsReachGoal + numTotalIterationsExitGoal << endl;
-    logFile << numMaxIterationsReachGoal + numMaxIterationsExitGoal << endl;
-    logFile << numMsgs << endl;
-    logFile << numTotalIterationsReachGoal << endl
-            << numTotalIterationsExitGoal << endl;
-    logFile << numMaxIterationsReachGoal << endl
-            << numMaxIterationsExitGoal << endl;
-    logFile << numTotalStalls << endl;
-    logFile << "simTime" << reachingTargetTime << endl;
+    if (countLines(path) == 0)
+    {
+        logFile << "num_robots" << ",";
+        logFile << "numTotalIterations" << ",";
+        logFile << "numMaxIterationsReachGoal + numMaxIterationsExitGoal" << ",";
+        logFile << "numMsgs" << ",";
+        logFile << "numTotalIterationsReachGoal" << ","
+                << "numTotalIterationsExitGoal" << ",";
+        logFile << "numMaxIterationsReachGoal" << ","
+                << "numMaxIterationsExitGoal" << ",";
+        logFile << "numTotalStalls" << ",";
+        logFile << "reachingTargetTime";
+    }
+    cout << countLines(path) << endl;
+    logFile << endl;
+    logFile << num_robots << ",";
+    logFile << numTotalIterationsReachGoal + numTotalIterationsExitGoal << ",";
+    logFile << numMaxIterationsReachGoal + numMaxIterationsExitGoal << ",";
+    logFile << numMsgs << ",";
+    logFile << numTotalIterationsReachGoal << ","
+            << numTotalIterationsExitGoal << ",";
+    logFile << numMaxIterationsReachGoal << ","
+            << numMaxIterationsExitGoal << ",";
+    logFile << numTotalStalls << ",";
+    logFile << reachingTargetTime;
 
     logFile.close();
 }

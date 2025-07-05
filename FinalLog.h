@@ -20,6 +20,7 @@ private:
   static unsigned long int reachingTargetTime;     // number of messages
 
   static void saveLog();
+  static int countLines(const std::string& filename);
 
   static double prob;
 
