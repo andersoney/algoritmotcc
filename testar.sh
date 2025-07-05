@@ -33,5 +33,5 @@ echo "automatic_${num_robot}_${exp}.world"
 # fi  
 # timeout $TIMEOUT stage $GUI worlds/automatic_${num_robot}_${exp}.world 
 echo "Startando stage"
-mkdir -p "${var}/nRobots$num_robot"
+mkdir -p "${var}"
 stage $GUI worlds/automatic_${num_robot}_${exp}.world 
