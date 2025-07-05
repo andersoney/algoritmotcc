@@ -71,8 +71,8 @@ ConnectionLocal::ConnectionLocal(Pool_t *apool)
 }
 
 // informs the logger that the robot using this class end your task, refreshing statistics
-void ConnectionLocal::finish(int m_id, int numIterationsEnter, int numIterationsExit, int stalls)
+void ConnectionLocal::finish(int m_id, int numIterationsEnter, int numIterationsExit, int stalls, unsigned long int reachingTargetTime)
 {
-  FinalLog::refresh(numIterationsEnter, numIterationsExit, numMessages, stalls);
+  FinalLog::refresh(numIterationsEnter, numIterationsExit, numMessages, stalls, reachingTargetTime);
   FinalLog::finish();
 }

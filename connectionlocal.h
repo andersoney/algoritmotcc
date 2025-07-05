@@ -94,7 +94,7 @@ public:
   void init_connection(string path, int numRobot, int numExp);
 
   // informs the logger that the robot using this class end your task, refreshing statistics
-  void finish(int m_id, int numIterationsEnter, int numIterationsExit, int numStalls);
+  void finish(int m_id, int numIterationsEnter, int numIterationsExit, int numStalls, unsigned long int reachingTargetTime);
 };
 
 #endif

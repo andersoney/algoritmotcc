@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <sstream>
 
-//alocating  statics members
+// alocating  statics members
 unsigned int FinalLog::num_robots, FinalLog::numFinished;
 bool FinalLog::initiated;
 ofstream FinalLog::logFile;
@@ -12,6 +12,7 @@ unsigned int FinalLog::numMaxIterationsReachGoal;   // Maximum number of iterati
 unsigned int FinalLog::numMaxIterationsExitGoal;    // Maximum number of iterations to exit from goal
 unsigned int FinalLog::numTotalStalls;              // number of times that the robots stalled
 unsigned int FinalLog::numMsgs;                     // number of messages
+unsigned long int FinalLog::reachingTargetTime;     // number of messages
 string FinalLog::path;
 double FinalLog::prob;
 
@@ -31,6 +32,7 @@ void FinalLog::init(string p)
         numFinished = 0;
         num_robots = 0;
         // prob = p;
+        // reachingTargetTime=15;
         path = p;
     }
     num_robots++;
@@ -58,12 +60,15 @@ void FinalLog::init(double p)
 void FinalLog::refresh(unsigned int numIterationsReachGoal,
                        unsigned int numIterationsExitGoal,
                        unsigned int messages,
-                       unsigned int numStalls)
+                       unsigned int numStalls,
+                       unsigned long reachingTargetTime2)
 {
     numMsgs += messages;
     numTotalStalls += numStalls;
     numTotalIterationsReachGoal += numIterationsReachGoal;
     numTotalIterationsExitGoal += numIterationsExitGoal;
+    reachingTargetTime = reachingTargetTime2;
+
     if (numIterationsReachGoal > numMaxIterationsReachGoal)
         numMaxIterationsReachGoal = numIterationsReachGoal;
     if (numIterationsExitGoal > numMaxIterationsExitGoal)
@@ -78,7 +83,7 @@ void FinalLog::saveLog()
     // std::string probStr = std::to_string(prob);
 
     logFile.open((path.c_str()));
-    //logFile.open(path);
+    // logFile.open(path);
     logFile << numTotalIterationsReachGoal + numTotalIterationsExitGoal << endl;
     logFile << numMaxIterationsReachGoal + numMaxIterationsExitGoal << endl;
     logFile << numMsgs << endl;
@@ -87,6 +92,7 @@ void FinalLog::saveLog()
     logFile << numMaxIterationsReachGoal << endl
             << numMaxIterationsExitGoal << endl;
     logFile << numTotalStalls << endl;
+    logFile << "simTime" << reachingTargetTime << endl;
 
     logFile.close();
 }

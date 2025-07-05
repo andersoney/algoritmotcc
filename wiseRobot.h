@@ -45,6 +45,7 @@ public:
 	// Pointers to classes used in Stage
 	ModelPosition *pos;
 	ModelRanger *laser;
+	World* theWorld;
 // This member allows visualize forces for debug
 #ifdef DEBUG_FORCES
 	ForceVisualizer fv;

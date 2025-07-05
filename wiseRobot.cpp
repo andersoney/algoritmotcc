@@ -258,7 +258,7 @@ void WiseRobot::walk()
     }
     if (finished && (distance(m_x, m_y, waypoints[0][0], waypoints[0][1]) >= distant_radius_to_finish))
     {
-        connection.finish(m_id, numIterationsReachGoal, numIterations, stalls);
+        connection.finish(m_id, numIterationsReachGoal, numIterations, stalls, theWorld->SimTimeNow());
         pos->SetColor(Color(0, 0, 0));
         finish();
         finished = false;
@@ -267,7 +267,7 @@ void WiseRobot::walk()
 #ifdef CHECK_DEAD_ROBOTS
     if (numIterations > DEAD_ITERATIONS)
     {
-        connection.finish(m_id, numIterations, 0, stalls);
+        connection.finish(m_id, numIterations, 0, stalls, theWorld->SimTimeNow());
         pos->SetColor(Color(0, 0, 0));
         finish();
     }
@@ -317,7 +317,7 @@ void WiseRobot::walk()
 }
 
 Pool_t pool;
-
+FinalLog finallog();
 // Pointer to a new robot.
 // Every call of this library will create a new robot
 // using this pointer.
@@ -331,7 +331,7 @@ extern "C" int Init(Model *mod, CtrlArgs *args)
     robot->pos = (ModelPosition *)mod;
     robot->pos->AddCallback(Model::CB_UPDATE, (model_callback_t)PositionUpdate, robot);
     robot->laser = (ModelRanger *)mod->GetChild("ranger:1");
-
+    robot->theWorld = mod->GetWorld();
     robot->laser->Subscribe(); // starts the laser updates
     robot->pos->Subscribe();   // starts the position updates
 
