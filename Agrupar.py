@@ -12,6 +12,7 @@ def agrupar_logs_linhas_com_labels(diretorio_saida, arquivo_destino, labels):
         num_robot = pasta_robot.name.replace("nRobots", "")
 
         for arquivo_log in sorted(pasta_robot.glob("logs_*")):
+            print(arquivo_log);
             num_exp = arquivo_log.stem.replace("logs_", "")
 
             with open(arquivo_log, 'r', encoding='utf-8') as f:
@@ -39,5 +40,5 @@ def agrupar_logs_linhas_com_labels(diretorio_saida, arquivo_destino, labels):
         print("Nenhum registro válido encontrado.")
 
 if __name__ == "__main__":
-    labels_para_linhas = ["numTotalIterations","numMaxIterationsReachGoal + numMaxIterationsExitGoal","numMsgs","numTotalIterationsReachGoal","numTotalIterationsExitGoal","numMaxIterationsReachGoal","numMaxIterationsExitGoal","numTotalStalls"]  # ajuste para os labels corretos
-    agrupar_logs_linhas_com_labels("saidas", "csv_agrupado_com_labels.csv", labels_para_linhas)
+    labels_para_linhas = ["num_robots","numTotalIterations","numMaxIterationsReachGoal + numMaxIterationsExitGoal","numMsgs","numTotalIterationsReachGoal","numTotalIterationsExitGoal","numMaxIterationsReachGoal","numMaxIterationsExitGoal","numTotalStalls","reachingTargetTime"]  # ajuste para os labels corretos
+    agrupar_logs_linhas_com_labels("PCCEEV2_SAIDA", "csv_agrupado_com_labels2.csv", labels_para_linhas)

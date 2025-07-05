@@ -1,7 +1,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-
+#include "commonDefs.h"
 using namespace std;
 
 class FinalLog

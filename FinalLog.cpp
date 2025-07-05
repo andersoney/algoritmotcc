@@ -99,7 +99,21 @@ void FinalLog::saveLog()
     // strs << prob;
     // std::string probStr = strs.str();
     // std::string probStr = std::to_string(prob);
-    logFile.open((path.c_str()), ios::app);
+#ifdef USAR_PASTAS
+    cout << path << endl;
+    logFile.open((path.c_str()));
+    logFile << num_robots << endl;
+    logFile << numTotalIterationsReachGoal + numTotalIterationsExitGoal << endl;
+    logFile << numMaxIterationsReachGoal + numMaxIterationsExitGoal << endl;
+    logFile
+        << numMsgs << endl;
+    logFile << numTotalIterationsReachGoal << endl
+            << numTotalIterationsExitGoal << endl;
+    logFile << numMaxIterationsReachGoal << endl
+            << numMaxIterationsExitGoal << endl;
+    logFile << numTotalStalls << endl;
+    logFile << reachingTargetTime << endl;
+#else
     cout << path << endl;
     if (countLines(path) == 0)
     {
@@ -127,6 +141,7 @@ void FinalLog::saveLog()
     logFile << numTotalStalls << ",";
     logFile << reachingTargetTime;
 
+#endif
     logFile.close();
 }
 

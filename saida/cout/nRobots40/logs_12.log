@@ -1,0 +1,15 @@
+/home/andersoney/workspace/algoritmotcc
+
+Criando cenário
+argumentos: 5
+1.8:1.2
+PCCEEV2_SAIDA
+Startando definicoes basicas.
+Raio: 7.74597
+Number exp: 12
+Number Robot: 40
+automatic_40_12.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading worlds/automatic_40_12.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+PCCEEV2_SAIDA/nRobots40/logs_12
