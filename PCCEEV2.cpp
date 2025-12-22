@@ -122,7 +122,7 @@ void PCCEEV2::obstaclesRepulsionForces(double &fx, double &fy)
         }
     }
 
-#ifdef mudancas
+#ifdef mudancas2
     if (estado == ENTRANDO)
     {
         if (min_distance < SECURITY_DIST_ENTRANDO)

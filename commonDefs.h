@@ -27,6 +27,7 @@
 //Size of the msg sended among robots
 #define SIZE_MSG 6
 #define mudancas
+#define mudancas2
 #define INFLUENCE 15 // Normal radius of influence of the obstacles
 #define CONSTANTE 11
 #define CONSTANTE_R 1
