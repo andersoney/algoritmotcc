@@ -24,6 +24,7 @@ export STAGEPATH=$PWD
 echo $STAGEPATH 
 echo $video
 shift 3
+mkdir -p ${var}/worlds
 ./createScenario ${var}/worlds/automatic_${num_robot}_${exp} ${num_robot} ${exp} ${video} ${@}
 echo "automatic_${num_robot}_${exp}.world"
 # if [ "$video" == "video" ]; then  
