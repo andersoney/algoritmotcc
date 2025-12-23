@@ -1,0 +1,46 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 5
+1.8:1.2
+saida_v2
+Startando definicoes basicas.
+Raio: 5.47723
+Number exp: 26
+Number Robot: 20
+automatic_20_26.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading saida_v2/worlds/automatic_20_26.world][41merr[0m: unable to open world file saida_v2/worlds/automatic_20_26.world : No such file or directory (/home/yuri.passos/Stage-master/libstage/worldfile.cc Load)
+[41merr[0m:  Failed to open file saida_v2/worlds/automatic_20_26.world (/home/yuri.passos/Stage-master/libstage/world.cc Load)
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 5
+1.8:1.2
+saida_v2
+Startando definicoes basicas.
+Raio: 5.47723
+Number exp: 26
+Number Robot: 20
+automatic_20_26.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading saida_v2/worlds/automatic_20_26.world][41merr[0m: unable to open world file saida_v2/worlds/automatic_20_26.world : No such file or directory (/home/yuri.passos/Stage-master/libstage/worldfile.cc Load)
+[41merr[0m:  Failed to open file saida_v2/worlds/automatic_20_26.world (/home/yuri.passos/Stage-master/libstage/world.cc Load)
+Terminated
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 5
+1.8:1.2
+saida_v2
+Startando definicoes basicas.
+Raio: 5.47723
+Number exp: 26
+Number Robot: 20
+automatic_20_26.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading saida_v2/worlds/automatic_20_26.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+saida_v2/nRobots20/logs_26
