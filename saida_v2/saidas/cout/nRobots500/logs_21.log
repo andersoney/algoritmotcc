@@ -11,4 +11,4 @@ Number Robot: 500
 automatic_500_21.world
 Startando stage
 Stage 4.3.0 [GUI disabled]
- [Loading saida_v2/worlds/automatic_500_21.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+ [Loading saida_v2/worlds/automatic_500_21.world][Include map.inc][Include sick.inc][Include pioneer.inc]./testar.sh: line 38: 580933 Segmentation fault      (core dumped) stage $GUI ${var}/worlds/automatic_${num_robot}_${exp}.world
