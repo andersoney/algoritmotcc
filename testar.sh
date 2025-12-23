@@ -24,7 +24,7 @@ export STAGEPATH=$PWD
 echo $STAGEPATH 
 echo $video
 shift 3
-./createScenario worlds/automatic_${num_robot}_${exp} ${num_robot} ${exp} ${video} ${@}
+./createScenario ${var}/worlds/automatic_${num_robot}_${exp} ${num_robot} ${exp} ${video} ${@}
 echo "automatic_${num_robot}_${exp}.world"
 # if [ "$video" == "video" ]; then  
 #   TIMEOUT=200000000000m
@@ -34,4 +34,4 @@ echo "automatic_${num_robot}_${exp}.world"
 # timeout $TIMEOUT stage $GUI worlds/automatic_${num_robot}_${exp}.world 
 echo "Startando stage"
 mkdir -p "${var}"
-stage $GUI worlds/automatic_${num_robot}_${exp}.world 
+stage $GUI ${var}/worlds/automatic_${num_robot}_${exp}.world 

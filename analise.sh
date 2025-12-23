@@ -27,10 +27,10 @@ do
         done
         
         mkdir -p "$pasta_saida/nRobots$nRobos"
-        mkdir -p "saida/cout/nRobots$nRobos"
+        mkdir -p "$pasta_saida/saidas/cout/nRobots$nRobos"
         
         echo "$nRobos $i - Executando para $nRobos $i pois o arquivo $pasta_saida/nRobots$nRobos/log\_$i n existe"
-        ./testar.sh $nRobos $i -gui $pasta_saida &>>"saida/cout/nRobots$nRobos/logs_$i.log" &
+        ./testar.sh $nRobos $i -gui $pasta_saida &>>"$pasta_saida/saidas/cout/nRobots$nRobos/logs_$i.log" &
         
     done
     echo "Todas as execuções finalizaram ${nRobos}"
