@@ -1,0 +1,14 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 5
+1.8:1.2
+saida_v2
+Startando definicoes basicas.
+Raio: 24.4949
+Number exp: 10
+Number Robot: 400
+automatic_400_10.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading saida_v2/worlds/automatic_400_10.world][Include map.inc][Include sick.inc][Include pioneer.inc]./testar.sh: line 38: 317003 Segmentation fault      (core dumped) stage $GUI ${var}/worlds/automatic_${num_robot}_${exp}.world
