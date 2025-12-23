@@ -1,0 +1,15 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 5
+1.8:1.2
+saida_v2
+Startando definicoes basicas.
+Raio: 15.4919
+Number exp: 20
+Number Robot: 160
+automatic_160_20.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading saida_v2/worlds/automatic_160_20.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+saida_v2/nRobots160/logs_20
