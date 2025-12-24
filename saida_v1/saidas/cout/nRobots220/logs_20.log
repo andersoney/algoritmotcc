@@ -12,3 +12,18 @@ automatic_220_20.world
 Startando stage
 Stage 4.3.0 [GUI disabled]
  [Loading saida_v1/worlds/automatic_220_20.world][Include map.inc][Include sick.inc][Include pioneer.inc]./testar.sh: line 38: 215437 Segmentation fault      (core dumped) stage $GUI ${var}/worlds/automatic_${num_robot}_${exp}.world
+/home/andersoney/algoritmotcc_v1
+
+Criando cenário
+argumentos: 5
+1.8:1.2
+saida_v1
+Startando definicoes basicas.
+Raio: 18.1659
+Number exp: 20
+Number Robot: 220
+automatic_220_20.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading saida_v1/worlds/automatic_220_20.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+saida_v1/nRobots220/logs_20
