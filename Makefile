@@ -49,3 +49,31 @@ kill:
 	pkill -f analis
 	pkill -f test
 	pkill -f stage
+
+commit-logs:
+	git add .
+	git commit -m "Commit automatico de logs"
+	git push
+
+ver-status:
+	ps aux | grep stage
+
+# Variáveis do ambiente Python (cria venv automaticamente se não existir)
+VENV_DIR = ./venv
+PYTHON = $(VENV_DIR)/bin/python
+PIP = $(VENV_DIR)/bin/pip
+LOGS_DIR ?= /home/andersoney/workspace/Logs
+GRAFICOS_DIR ?= ./graficos_comparativos
+
+$(VENV_DIR)/bin/activate:
+	python3 -m venv $(VENV_DIR)
+	$(PIP) install --upgrade pip
+	$(PIP) install matplotlib numpy
+
+graficos-setup: $(VENV_DIR)/bin/activate
+
+graficos: $(VENV_DIR)/bin/activate
+	$(PYTHON) gerar_graficos_comparativos.py --raiz $(LOGS_DIR) --saida $(GRAFICOS_DIR)
+
+graficos-local: $(VENV_DIR)/bin/activate
+	$(PYTHON) gerar_graficos_comparativos.py --raiz . --saida $(GRAFICOS_DIR)
