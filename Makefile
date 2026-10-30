@@ -46,4 +46,4 @@ reset:
 kill:
 	pkill -f analis
 	pkill -f test
-	kill -f stage
+	pkill -f stage
