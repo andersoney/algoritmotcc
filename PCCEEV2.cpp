@@ -13,7 +13,7 @@ PCCEEV2::PCCEEV2(Pool_t *pool) : connection(pool)
 
 // Initialize all robot data (pose, connection, velocity, etc.)
 void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_finish_in, string patch,
-                   double _SECURITY_DIST_ENTRANDO, double _SECURITY_DIST_SAINDO)
+                   double _SECURITY_DIST_ENTRANDO, double _SECURITY_DIST_SAINDO, bool _holo)
 {
     m_id = id;
     m_name = "robot" + intToStr(id);
@@ -26,6 +26,7 @@ void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_f
     numIterations = numIterationsReachGoal = 0;
     SECURITY_DIST_ENTRANDO = _SECURITY_DIST_ENTRANDO;
     SECURITY_DIST_SAINDO = SECURITY_DIST_SAINDO;
+    holo = _holo;
 
 #ifdef GENERAL_LOG
     log.open(("logs/" + m_name).c_str());
@@ -121,7 +122,7 @@ void PCCEEV2::obstaclesRepulsionForces(double &fx, double &fy)
             fy_ += _fy;
         }
     }
-
+        std::cout << "SimTimeNow" << this->theWorld->SimTimeNow() << std::endl;
 #ifdef mudancas2
     if (estado == ENTRANDO)
     {
@@ -309,22 +310,37 @@ void PCCEEV2::walk()
     fv.setResultantForces(fx, fy);
 #endif
 
-    if (fx == 0 && fy == 0) // Change to inequalities?
-        angTarget = m_th;
+    if (holo)
+    {
+        double linAccelX = Kl * (fx * cos(m_th) + fy * sin(m_th)) - Kdp * linSpeed;
+        double linAccelY = Kl * (-fx * sin(m_th) + fy * cos(m_th)) - Kdp * linSpeedY;
+
+        linSpeed = linSpeed + linAccelX * (TIME_STEP);
+        linSpeedY = linSpeedY + linAccelY * (TIME_STEP);
+
+        this->pos->SetXSpeed(linSpeed);
+        this->pos->SetYSpeed(linSpeedY);
+        this->pos->SetTurnSpeed(0);
+    }
     else
-        angTarget = atan2(fy, fx);
+    {
+        if (fx == 0 && fy == 0) // Change to inequalities?
+            angTarget = m_th;
+        else
+            angTarget = atan2(fy, fx);
 
-    linAccel = Kl * (fx * cos(m_th) + fy * sin(m_th));
-    rotAccel = Kr * (angDiff(angTarget, m_th));
+        linAccel = Kl * (fx * cos(m_th) + fy * sin(m_th));
+        rotAccel = Kr * (angDiff(angTarget, m_th));
 
-    linAccel += -Kdp * linSpeed;
-    rotAccel += -Kdp * rotSpeed;
+        linAccel += -Kdp * linSpeed;
+        rotAccel += -Kdp * rotSpeed;
 
-    linSpeed = linSpeed + linAccel * (TIME_STEP);
-    rotSpeed = rotSpeed + rotAccel * (TIME_STEP);
+        linSpeed = linSpeed + linAccel * (TIME_STEP);
+        rotSpeed = rotSpeed + rotAccel * (TIME_STEP);
 
-    this->pos->SetXSpeed(linSpeed);
-    this->pos->SetTurnSpeed(rotSpeed);
+        this->pos->SetXSpeed(linSpeed);
+        this->pos->SetTurnSpeed(rotSpeed);
+    }
 
 #ifdef GENERAL_LOG
     log << m_x << " " << m_y << " " << destineX << " " << destineY << " " << endl;
@@ -359,6 +375,7 @@ void PCCEEV2::init_position_data()
 {
     currentWaypoint = 0;
     linSpeed = 0;
+    linSpeedY = 0;
     rotSpeed = 0;
     srand(m_id * time(NULL));
 }

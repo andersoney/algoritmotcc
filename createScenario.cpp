@@ -114,7 +114,7 @@ int main(int argc, char **argv)
    {
       cerr << "Invalid parameters" << endl;
       cerr << "Use: " << endl;
-      cerr << "createScenario <file> <numRobots> <num_exp> [video] <aditional_params>" << endl;
+      cerr << "createScenario <file> <numRobots> <num_exp> [video/patch] [holo]" << endl;
       exit(1);
    }
    ConfigFile cf("config.ini");
@@ -134,11 +134,28 @@ int main(int argc, char **argv)
 
    int numExp = atoi(argv[3]);
    string patch = "saidas";
-   if (argc >= 5)
+   int holo = 0;
+   if (argc == 5)
+   {
+      if (strcmp(argv[4], "1") == 0 || strcmp(argv[4], "holo") == 0 || strcmp(argv[4], "true") == 0)
+      {
+         holo = 1;
+      }
+      else
+      {
+         patch = argv[4];
+      }
+   }
+   else if (argc >= 6)
    {
       patch = argv[4];
+      if (atoi(argv[5]) != 0 || strcmp(argv[5], "holo") == 0 || strcmp(argv[5], "true") == 0)
+      {
+         holo = 1;
+      }
    }
    cout << patch << endl;
+   cout << "Holonomico: " << holo << endl;
 
    cout << "Startando definicoes basicas." << endl;
 
@@ -189,8 +206,12 @@ int main(int argc, char **argv)
           << "sicklaser ()" << endl
           << "size [0.44 0.44 0.44]" << endl
           << "localization \"gps\"" << endl
-          << "localization_origin [ 0 0 0 0 ]" << endl
-          << ")" << endl
+          << "localization_origin [ 0 0 0 0 ]" << endl;
+   if (holo)
+   {
+      output << "drive \"omni\"" << endl;
+   }
+   output << ")" << endl
           << endl;
 
    for (int i = 0; i < numRobots; i++)
@@ -206,7 +227,7 @@ int main(int argc, char **argv)
              << "  color \"red\"" << endl
              << "  pose [" << tmp.x << " " << tmp.y << " 0 " << (180 / 3.1416) * tmp.theta << "]" << endl
              << "  ctrl \"coordination.so " << i << " " << numRobots << " " << numExp << " " << raio << " " << patch << " "
-             << SECURITY_DIST_ENTRANDO << " " << SECURITY_DIST_SAINDO << "\"" << endl
+             << SECURITY_DIST_ENTRANDO << " " << SECURITY_DIST_SAINDO << " " << holo << "\"" << endl
              << ")" << endl
              << endl;
 

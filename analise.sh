@@ -8,6 +8,7 @@ if [ $# -ge 2 ]; then
 else
         pasta_saida="PCCEEV2_SAIDA"
 fi
+holo_param="$3"
 
 #make clean
 make
@@ -30,7 +31,7 @@ do
         mkdir -p "$pasta_saida/saidas/cout/nRobots$nRobos"
         
         echo "$nRobos $i - Executando para $nRobos $i pois o arquivo $pasta_saida/nRobots$nRobos/log\_$i n existe"
-        ./testar.sh $nRobos $i -gui $pasta_saida &>>"$pasta_saida/saidas/cout/nRobots$nRobos/logs_$i.log" &
+        ./testar.sh $nRobos $i -gui $pasta_saida $holo_param &>>"$pasta_saida/saidas/cout/nRobots$nRobos/logs_$i.log" &
         
     done
     echo "Todas as execuções finalizaram ${nRobos}"

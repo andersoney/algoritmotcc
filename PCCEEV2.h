@@ -31,7 +31,8 @@ public:
 		int id,
 		int numRobots, int numExp, double distant_radius_to_finish,
 		string patch,
-		double SECURITY_DIST_ENTRANDO, double SECURITY_DIST_SAINDO);
+		double SECURITY_DIST_ENTRANDO, double SECURITY_DIST_SAINDO,
+		bool _holo = false);
 
 	// Finish robot, freeing some variables and closing files
 	void finish();
@@ -125,9 +126,13 @@ private:
 
 	// linear velocity of the robot
 	double linSpeed;
+	double linSpeedY;
 
 	// rotation velocity of the robot
 	double rotSpeed;
+
+	// Indicates if the robot is holonomic
+	bool holo = false;
 
 	// FOV and SAMPLES for laser. These values are token from Stage world file, and computed in init_laser()
 	double LASER_FOV, LASER_SAMPLES;
