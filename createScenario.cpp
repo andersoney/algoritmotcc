@@ -167,7 +167,7 @@ int main(int argc, char **argv)
    cout << "Number Robot: " << numRobots << endl;
    int numRobot = 0;
 
-   srand(time(NULL));
+   srand(time(NULL) + numExp * 1000 + numRobots);
    ofstream output((string(argv[1]) + ".world").c_str());
 
    output << "# defines 'map' object used for floorplans" << endl

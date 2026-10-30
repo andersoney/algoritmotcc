@@ -25,7 +25,7 @@ void PCCEEV2::init(int id, int numRobots, int numExp, double distant_radius_to_f
     distant_radius_to_finish = distant_radius_to_finish_in;
     numIterations = numIterationsReachGoal = 0;
     SECURITY_DIST_ENTRANDO = _SECURITY_DIST_ENTRANDO;
-    SECURITY_DIST_SAINDO = SECURITY_DIST_SAINDO;
+    SECURITY_DIST_SAINDO = _SECURITY_DIST_SAINDO;
     holo = _holo;
 
 #ifdef GENERAL_LOG
