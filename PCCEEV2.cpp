@@ -377,7 +377,7 @@ void PCCEEV2::init_position_data()
     linSpeed = 0;
     linSpeedY = 0;
     rotSpeed = 0;
-    srand(m_id * time(NULL));
+    srand(time(NULL) + m_id * 1000);
 }
 
 // Convert a integer to string
