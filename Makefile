@@ -6,6 +6,8 @@ COMMON_DIR = ../common
 
 run: all
 	@mkdir -p saida saidas worlds
+testar-holo: run
+	nohup taskset -c 3-15 bash analise.sh 30 saida_v2_holo holo
 
 all: coordination.so createScenario
 
@@ -39,7 +41,7 @@ FinalLog.o: ./FinalLog.h ./FinalLog.cpp
 clean:
 	@rm -f *.o *.so  server createScenario  *.world
 clean-all: clean
-	@rm -rf saida saidas worlds
+	@rm -rf saida* saidas* worlds nohup 
 reset:
 	rm -rf nRobos*
 
