@@ -122,7 +122,7 @@ void PCCEEV2::obstaclesRepulsionForces(double &fx, double &fy)
             fy_ += _fy;
         }
     }
-        std::cout << "SimTimeNow" << this->theWorld->SimTimeNow() << std::endl;
+        // std::cout << "SimTimeNow" << this->theWorld->SimTimeNow() << std::endl;
 #ifdef mudancas2
     if (estado == ENTRANDO)
     {
