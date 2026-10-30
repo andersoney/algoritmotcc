@@ -43,3 +43,7 @@ clean-all: clean
 reset:
 	rm -rf nRobos*
 
+kill:
+	pkill -f analis
+	pkill -f test
+	kill -f stage
