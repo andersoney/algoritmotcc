@@ -1,0 +1,16 @@
+/home/andersoney/algoritmotcc
+
+Criando cenário
+argumentos: 6
+1.8:1.2
+saida_v2_holo
+Holonomico: 1
+Startando definicoes basicas.
+Raio: 23.2379
+Number exp: 1
+Number Robot: 360
+automatic_360_1.world
+Startando stage
+Stage 4.3.0 [GUI disabled]
+ [Loading saida_v2_holo/worlds/automatic_360_1.world][Include map.inc][Include sick.inc][Include pioneer.inc]
+saida_v2_holo/nRobots360/logs_1
